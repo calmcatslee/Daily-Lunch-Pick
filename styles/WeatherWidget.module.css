@@ -90,3 +90,24 @@
   from { opacity: 0; transform: translateY(-4px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+
+/* ── 모바일: 위젯 압축 ─────────────────────────────────────── */
+@media (max-width: 600px) {
+  .wrap {
+    padding: 7px 12px;
+    gap: 5px;
+    border-radius: 12px;
+    max-width: calc(100vw - 24px);
+    flex-wrap: nowrap;
+  }
+  .weatherLabel { font-size: 12px; margin-right: 2px; }
+  .icon    { font-size: 14px; }
+  .windIcon { font-size: 12px; }
+  .temp  { font-size: 12px; }
+  .label { font-size: 11px; white-space: nowrap; }
+  .sub   { font-size: 10px; white-space: nowrap; }
+  .dustText { font-size: 11px; }
+  .dustDot { width: 6px; height: 6px; }
+  .divider { margin: 0 3px; height: 12px; }
+  .chip { gap: 3px; }
+}

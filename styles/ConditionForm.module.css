@@ -248,3 +248,44 @@
 @keyframes spin    { to { transform: rotate(360deg); } }
 @keyframes fadeUp  { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes fadeIn  { from { opacity: 0; } to { opacity: 1; } }
+
+/* ── 태블릿 (768px) ─────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .ibookScreen {
+    padding: 16px 16px 10px;
+    gap: 8px;
+  }
+  .sectionLabel { font-size: 13px; }
+  .chip { font-size: 11px; padding: 8px 3px; }
+  .searchInput { font-size: 12px; padding: 9px 12px; }
+}
+
+/* ── 모바일 (480px 이하) ─────────────────────────────────────── */
+@media (max-width: 480px) {
+  .ibookScreen {
+    top: 8%;
+    left: 14%;
+    width: 72%;
+    height: 56%;
+    padding: 12px 12px 8px;
+    gap: 6px;
+  }
+  .section { gap: 4px; }
+  .sectionLabel { font-size: 11px; }
+  .chip {
+    font-size: 9.5px;
+    padding: 6px 2px;
+    border-radius: 14px;
+  }
+  .chips { gap: 3px; }
+  .searchInput {
+    font-size: 11px;
+    padding: 7px 10px;
+    border-radius: 14px;
+  }
+  .styleSubtext { display: none; }
+  .submitBtn {
+    font-size: 14px;
+    padding: 11px 18px;
+  }
+}
