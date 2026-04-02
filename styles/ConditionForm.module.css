@@ -26,17 +26,17 @@
 /* ── iBook 화면 오버레이 ───────────────────────────────────── */
 .ibookScreen {
   position: absolute;
-  top: 9.5%;
-  left: 15.5%;
-  width: 69%;
-  height: 52%;
-  background: rgba(11, 11, 11, 0.90);
+  top: 9%;
+  left: 15%;
+  width: 70%;
+  height: 54%;
+  background: transparent;
   border-radius: 7px;
-  padding: 24px 28px 18px;
+  padding: 20px 22px 14px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  overflow: visible;
+  gap: 10px;
+  overflow: hidden;
   z-index: 2;
 }
 
@@ -49,7 +49,7 @@
 }
 
 .sectionLabel {
-  font-family: 'MyoeunHeullim', sans-serif;
+  font-family: 'YoonLight', sans-serif;
   font-size: clamp(14px, 1.8vw, 20px);
   color: #aaff44;
   letter-spacing: 0.02em;

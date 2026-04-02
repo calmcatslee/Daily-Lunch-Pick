@@ -76,23 +76,13 @@ export default function DeviceLayer() {
   // Musicplayer
   const mpClickRef = useRef(null)
 
-  // Gameboy — hover video + sound
-  const [gameboyHovered, setGameboyHovered] = useState(false)
-  const gameboyVideoRef = useRef(null)
-  const gameboySongRef = useRef(null)
+  // Gameboy — click press animation only
+  const [gameboyPressed, setGameboyPressed] = useState(false)
 
-  useEffect(() => {
-    const video = gameboyVideoRef.current
-    const audio = gameboySongRef.current
-    if (!video) return
-    if (gameboyHovered) {
-      video.play().catch(() => {})
-      audio?.play().catch(() => {})
-    } else {
-      video.pause()
-      if (audio) { audio.pause(); audio.currentTime = 0 }
-    }
-  }, [gameboyHovered])
+  const handleGameboyClick = useCallback(() => {
+    setGameboyPressed(true)
+    setTimeout(() => setGameboyPressed(false), 200)
+  }, [])
 
   // Mobile: 모서리 탭하면 디바이스 보이기
   const [mobileReveal, setMobileReveal] = useState({
@@ -111,7 +101,6 @@ export default function DeviceLayer() {
       <audio ref={pagerBeepRef} src="/sounds/pager_beep.mp3" preload="auto" />
       <audio ref={tincaseTapRef} src="/sounds/tincase_tap.mp3" preload="auto" />
       <audio ref={mpClickRef} src="/sounds/musicplayer_click.mp3" preload="auto" />
-      <audio ref={gameboySongRef} src="/sounds/gameboy_song.mp3" preload="auto" />
 
       {/* ── CD ── */}
       <div
@@ -148,27 +137,17 @@ export default function DeviceLayer() {
         </div>
       </div>
 
-      {/* ── Gameboy — hover video ── */}
+      {/* ── Gameboy — click press animation ── */}
       <div
         className={`${s.device} ${s.gameboy} ${mobileReveal.gameboy ? s.mobileShow : ''}`}
-        onMouseEnter={() => setGameboyHovered(true)}
-        onMouseLeave={() => setGameboyHovered(false)}
+        onClick={handleGameboyClick}
+        title="클릭해봐"
       >
         <img
           src="/devices/gameboy.png"
           alt="Game Boy Color"
-          className={s.gameboyImg}
+          className={`${s.gameboyImg} ${gameboyPressed ? s.gameboyPressed : ''}`}
           draggable={false}
-          style={{ display: gameboyHovered ? 'none' : 'block' }}
-        />
-        <video
-          ref={gameboyVideoRef}
-          src="/devices/gameboy.mp4"
-          className={s.gameboyImg}
-          style={{ display: gameboyHovered ? 'block' : 'none' }}
-          loop
-          muted={false}
-          playsInline
         />
       </div>
 
