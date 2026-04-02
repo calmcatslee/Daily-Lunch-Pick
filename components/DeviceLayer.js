@@ -190,10 +190,10 @@ export default function DeviceLayer() {
       </div>
 
       {/* ── 모바일 코너 탭 버튼 ── */}
-      <button className={`${s.cornerBtn} ${s.cornerTL}`} onClick={() => toggleMobileDevice('pager')} aria-label="페이저" />
-      <button className={`${s.cornerBtn} ${s.cornerBL}`} onClick={() => toggleMobileDevice('gameboy')} aria-label="게임보이" />
+      <button className={`${s.cornerBtn} ${s.cornerTL}`} onClick={() => toggleMobileDevice('pager')} aria-label="페이저">📟</button>
+      <button className={`${s.cornerBtn} ${s.cornerBL}`} onClick={() => toggleMobileDevice('gameboy')} aria-label="게임보이">🎮</button>
       <button className={`${s.cornerBtn} ${s.cornerTR}`} onClick={() => toggleMobileDevice('tincase')} aria-label="틴케이스" />
-      <button className={`${s.cornerBtn} ${s.cornerBR}`} onClick={() => toggleMobileDevice('musicplayer')} aria-label="뮤직플레이어" />
+      <button className={`${s.cornerBtn} ${s.cornerBR}`} onClick={() => toggleMobileDevice('musicplayer')} aria-label="뮤직플레이어">🎵</button>
 
     </div>
   )

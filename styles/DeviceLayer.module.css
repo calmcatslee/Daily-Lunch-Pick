@@ -1,11 +1,46 @@
 .layer { position: fixed; inset: 0; pointer-events: none; z-index: 10; overflow: hidden; }
 .device { position: absolute; pointer-events: all; opacity: 0; animation: fadeDevice 0.6s ease forwards; }
 
+/* ════════════════════════════════════════════════════════════
+   키프레임 — 전역 선언
+   ════════════════════════════════════════════════════════════*/
+@keyframes fadeDevice { to { opacity: 1; } }
+@keyframes enterCdFromTop {
+  from { opacity: 0; transform: translateX(-50%) translateY(-80px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+@keyframes enterFromLeft {
+  from { opacity: 0; transform: rotate(8deg) translateX(-100px); }
+  to   { opacity: 1; transform: rotate(8deg) translateX(0); }
+}
+@keyframes enterFromRight {
+  from { opacity: 0; transform: rotate(-8deg) translateX(100px); }
+  to   { opacity: 1; transform: rotate(-8deg) translateX(0); }
+}
+@keyframes enterFromBottomLeft {
+  from { opacity: 0; transform: rotate(6deg) translate(-80px, 80px); }
+  to   { opacity: 1; transform: rotate(6deg) translate(0, 0); }
+}
+@keyframes enterFromBottomRight {
+  from { opacity: 0; transform: rotate(-6deg) translate(80px, 80px); }
+  to   { opacity: 1; transform: rotate(-6deg) translate(0, 0); }
+}
+@keyframes rotateSlow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.75) translateY(8px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+@keyframes cornerPulse {
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  50%       { opacity: 0.9;  transform: scale(1.08); }
+}
+
 /* ────────────────────────────────────────────────────────────
-   CD — 상단 중앙, 타이틀 위에 반쯤 걸침
+   CD — 타이틀 위 절반만 걸치도록 더 숨김
    ────────────────────────────────────────────────────────────*/
 .cd {
-  top: -8%;
+  top: -14%;
   left: 50%; transform: translateX(-50%);
   width: clamp(160px, 16vw, 260px);
   cursor: pointer;
@@ -13,7 +48,7 @@
   animation-name: enterCdFromTop;
   transition: top 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
-.cdHovered { top: 2%; }
+.cdHovered { top: -3%; }
 .cdImg { width: 100%; display: block; filter: drop-shadow(0 8px 24px rgba(0,0,0,0.3)); }
 .spinning { animation: rotateSlow 8s linear infinite; }
 .cdLabel {
@@ -108,134 +143,119 @@
 .musicplayer:active .musicplayerImg { transform: scale(0.96); }
 
 /* ────────────────────────────────────────────────────────────
-   코너 버튼 (모바일용 — 기본 숨김)
+   코너 버튼 — 기본 숨김
    ────────────────────────────────────────────────────────────*/
 .cornerBtn { display: none; }
 
-/* ────────────────────────────────────────────────────────────
-   키프레임
-   ────────────────────────────────────────────────────────────*/
-@keyframes fadeDevice { to { opacity: 1; } }
-@keyframes enterCdFromTop {
-  from { opacity: 0; transform: translateX(-50%) translateY(-120px); }
-  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
-}
-@keyframes enterFromLeft {
-  from { opacity: 0; transform: rotate(8deg) translateX(-100px); }
-  to   { opacity: 1; transform: rotate(8deg) translateX(0); }
-}
-@keyframes enterFromRight {
-  from { opacity: 0; transform: rotate(-8deg) translateX(100px); }
-  to   { opacity: 1; transform: rotate(-8deg) translateX(0); }
-}
-@keyframes enterFromBottomLeft {
-  from { opacity: 0; transform: rotate(6deg) translate(-80px, 80px); }
-  to   { opacity: 1; transform: rotate(6deg) translate(0, 0); }
-}
-@keyframes enterFromBottomRight {
-  from { opacity: 0; transform: rotate(-6deg) translate(80px, 80px); }
-  to   { opacity: 1; transform: rotate(-6deg) translate(0, 0); }
-}
-@keyframes rotateSlow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
-@keyframes popIn {
-  from { opacity: 0; transform: scale(0.75) translateY(8px); }
-  to   { opacity: 1; transform: scale(1) translateY(0); }
-}
-
 /* ════════════════════════════════════════════════════════════
-   반응형 브레이크포인트
+   반응형
    ════════════════════════════════════════════════════════════*/
 
-/* ── 1600px 이상: 넓은 화면 — 디바이스 여유있게 ── */
+/* ── 1600px+ ── */
 @media (min-width: 1600px) {
   .pager       { width: clamp(180px, 12vw, 230px); left: 4%; top: 15%; }
   .gameboy     { width: clamp(180px, 12vw, 250px); left: 3%; }
   .tincase     { width: clamp(180px, 12vw, 230px); right: 4%; top: 12%; }
   .musicplayer { width: clamp(180px, 12vw, 250px); right: 3%; }
-  .cd          { width: clamp(180px, 13vw, 270px); }
+  .cd          { width: clamp(180px, 13vw, 280px); }
 }
 
-/* ── 1280px ~ 1599px: 기본 구간 — clamp 기본값 그대로 ── */
-
-/* ── 1024px ~ 1279px: iBook(680px) 가운데 정렬 시 좌우 여백 약 300px
-      → 디바이스 조금 줄이고 살짝 화면 밖으로 ── */
+/* ── 1025px ~ 1279px ── */
 @media (max-width: 1279px) and (min-width: 1025px) {
-  .pager       { left: -1%; top: 18%; width: clamp(110px, 11vw, 165px); }
-  .gameboy     { left: -1%; bottom: 2%; width: clamp(110px, 11vw, 175px); }
-  .tincase     { right: -1%; top: 15%; width: clamp(110px, 11vw, 165px); }
-  .musicplayer { right: -1%; bottom: 2%; width: clamp(110px, 11vw, 175px); }
+  .pager       { left: 0%; top: 18%; width: clamp(115px, 11vw, 165px); }
+  .gameboy     { left: 0%; bottom: 2%; width: clamp(115px, 11vw, 175px); }
+  .tincase     { right: 0%; top: 15%; width: clamp(115px, 11vw, 165px); }
+  .musicplayer { right: 0%; bottom: 2%; width: clamp(115px, 11vw, 175px); }
   .cd          { width: clamp(130px, 13vw, 210px); }
 }
 
-/* ── 769px ~ 1024px: iBook이 거의 전체 폭 → 디바이스 절반 화면 밖 ── */
+/* ── 769px ~ 1024px: 디바이스 작게, 화면 끝에 살짝 걸침 ── */
 @media (max-width: 1024px) and (min-width: 769px) {
-  .pager       { left: -5%; top: 18%; width: clamp(95px, 10vw, 135px); }
-  .gameboy     { left: -5%; bottom: 2%; width: clamp(95px, 10vw, 140px); }
-  .tincase     { right: -5%; top: 15%; width: clamp(95px, 10vw, 135px); }
-  .musicplayer { right: -5%; bottom: 2%; width: clamp(95px, 10vw, 140px); }
-  .cd          { width: clamp(100px, 11vw, 155px); }
+  .pager       { left: 0%; top: 18%; width: clamp(90px, 10vw, 130px); animation-name: enterFromLeft; }
+  .gameboy     { left: 0%; bottom: 2%; width: clamp(90px, 10vw, 135px); animation-name: enterFromBottomLeft; }
+  .tincase     { right: 0%; top: 15%; width: clamp(90px, 10vw, 130px); animation-name: enterFromRight; }
+  .musicplayer { right: 0%; bottom: 2%; width: clamp(90px, 10vw, 135px); animation-name: enterFromBottomRight; }
+  .cd          { width: clamp(100px, 11vw, 150px); top: -12%; }
+  .cdHovered   { top: -2%; }
 }
 
-/* ── 모바일 (768px 이하) — 화면 밖 숨기고 코너 탭으로 열기 ── */
+/* ── 모바일 (768px 이하): 끝에서 살짝 peek, 탭하면 슬라이드인 ── */
 @media (max-width: 768px) {
+  /* CD */
+  .cd { width: 88px; top: -10%; }
+  .cdHovered { top: 1%; }
+
+  /* Pager: 왼쪽에서 30px만 보임 */
   .pager {
-    left: -80%; top: 10%; width: 110px;
+    left: -80px;
+    top: 12%;
+    width: 110px;
+    animation: none;
+    opacity: 1;
     transition: left 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-    animation: none; opacity: 1;
   }
-  .pager.mobileShow { left: -5%; }
+  .pager.mobileShow { left: 4px; }
 
+  /* Gameboy: 왼쪽에서 30px만 보임 */
   .gameboy {
-    left: -80%; bottom: 5%; width: 100px;
+    left: -70px;
+    bottom: 6%;
+    width: 100px;
+    animation: none;
+    opacity: 1;
     transition: left 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-    animation: none; opacity: 1;
   }
-  .gameboy.mobileShow { left: -5%; }
+  .gameboy.mobileShow { left: 4px; }
 
-  .cd { width: 90px; top: -6%; }
-  .cdHovered { top: 2%; }
-
+  /* Tincase: 오른쪽에서 30px만 보임 */
   .tincase {
-    right: -80%; top: 15%; width: 100px;
+    right: -70px;
+    top: 15%;
+    width: 100px;
+    animation: none;
+    opacity: 1;
     transition: right 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-    animation: none; opacity: 1;
   }
-  .tincase.mobileShow { right: -5%; }
+  .tincase.mobileShow { right: 4px; }
 
+  /* Musicplayer: 오른쪽에서 30px만 보임 */
   .musicplayer {
-    right: -80%; bottom: 5%; width: 100px;
+    right: -70px;
+    bottom: 6%;
+    width: 100px;
+    animation: none;
+    opacity: 1;
     transition: right 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-    animation: none; opacity: 1;
   }
-  .musicplayer.mobileShow { right: -5%; }
+  .musicplayer.mobileShow { right: 4px; }
 
+  /* 코너 탭 버튼 */
   .cornerBtn {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: absolute;
-    width: 44px; height: 44px;
-    background: rgba(255,255,255,0.12);
-    border: 1.5px dashed rgba(255,255,255,0.25);
-    border-radius: 10px;
-    pointer-events: all; cursor: pointer; z-index: 20;
-    animation: cornerPulse 3s ease-in-out infinite;
+    width: 36px; height: 36px;
+    background: rgba(255, 255, 255, 0.18);
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    border-radius: 8px;
+    pointer-events: all;
+    cursor: pointer;
+    z-index: 20;
+    animation: cornerPulse 2.5s ease-in-out infinite;
+    font-size: 14px;
   }
-  .cornerTL { top: 10px; left: 10px; }
-  .cornerBL { bottom: 10px; left: 10px; }
+  .cornerTL { top: 12px; left: 12px; }
+  .cornerBL { bottom: 12px; left: 12px; }
   .cornerTR { display: none; }
-  .cornerBR { bottom: 10px; right: 10px; }
+  .cornerBR { bottom: 12px; right: 12px; }
 }
 
-/* ── 초소형 모바일 (375px 이하) ── */
+/* ── 375px 이하 ── */
 @media (max-width: 375px) {
-  .pager       { width: 85px; }
-  .gameboy     { width: 80px; }
-  .tincase     { width: 85px; }
-  .musicplayer { width: 80px; }
-  .cd          { width: 72px; }
-}
-
-@keyframes cornerPulse {
-  0%, 100% { opacity: 0.4; }
-  50%       { opacity: 0.7; }
+  .pager       { width: 90px; left: -65px; }
+  .gameboy     { width: 85px; left: -60px; }
+  .tincase     { width: 90px; right: -65px; }
+  .musicplayer { width: 85px; right: -60px; }
+  .cd          { width: 70px; }
 }

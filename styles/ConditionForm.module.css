@@ -12,7 +12,7 @@
 .ibookWrap {
   position: relative;
   width: 100%;
-  max-width: 680px;
+  max-width: 780px;
   filter: drop-shadow(0 20px 60px rgba(0, 0, 0, 0.35));
 }
 
@@ -26,16 +26,16 @@
 /* ── iBook 화면 오버레이 ───────────────────────────────────── */
 .ibookScreen {
   position: absolute;
-  top: 9%;
-  left: 15%;
-  width: 70%;
-  height: 54%;
+  top: 8%;
+  left: 16%;
+  width: 68%;
+  height: 48%;
   background: transparent;
   border-radius: 7px;
-  padding: 20px 22px 14px;
+  padding: 18px 20px 12px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 9px;
   overflow: hidden;
   z-index: 2;
 }
@@ -252,25 +252,30 @@
 /* ── 태블릿 (768px) ─────────────────────────────────────────── */
 @media (max-width: 768px) {
   .ibookScreen {
-    padding: 16px 16px 10px;
-    gap: 8px;
+    top: 8%;
+    left: 16%;
+    width: 68%;
+    height: 48%;
+    padding: 14px 14px 10px;
+    gap: 7px;
   }
-  .sectionLabel { font-size: 13px; }
-  .chip { font-size: 11px; padding: 8px 3px; }
-  .searchInput { font-size: 12px; padding: 9px 12px; }
+  .sectionLabel { font-size: 12px; }
+  .chip { font-size: 10px; padding: 7px 3px; }
+  .searchInput { font-size: 11px; padding: 8px 12px; }
 }
 
 /* ── 모바일 (480px 이하) ─────────────────────────────────────── */
 @media (max-width: 480px) {
+  .ibookWrap { max-width: 100%; }
   .ibookScreen {
     top: 8%;
-    left: 14%;
-    width: 72%;
-    height: 56%;
+    left: 16%;
+    width: 68%;
+    height: 48%;
     padding: 12px 12px 8px;
     gap: 6px;
   }
-  .section { gap: 4px; }
+  .section { gap: 3px; }
   .sectionLabel { font-size: 11px; }
   .chip {
     font-size: 9.5px;
