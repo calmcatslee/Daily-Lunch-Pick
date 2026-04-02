@@ -1,0 +1,107 @@
+.wrap {
+  position: fixed;
+  bottom: 28px;
+  left: 28px;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s, filter 0.2s;
+  filter: drop-shadow(0 6px 20px rgba(24, 100, 200, 0.35));
+}
+
+.btn:hover {
+  filter: drop-shadow(0 8px 28px rgba(24, 100, 200, 0.5));
+  transform: scale(1.06);
+}
+
+.btn:hover .playIcon,
+.btn:hover .pauseIcon {
+  opacity: 1 !important;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+/* 재생 중: 이미지 전체 회전 */
+.spinning .img {
+  animation: spinDisc 3s linear infinite;
+}
+
+@keyframes spinDisc {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* 오버레이 아이콘 */
+.playIcon,
+.pauseIcon {
+  position: absolute;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 2px 8px rgba(0, 60, 140, 0.5);
+  opacity: 0;
+  transition: opacity 0.2s;
+  pointer-events: none;
+  /* 재생 아이콘은 이미지와 같이 회전하면 안 되므로 별도 처리 */
+  transform: none !important;
+}
+
+.hide {
+  display: none;
+}
+
+.unloaded {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* 재생 중 표시 */
+.nowPlaying {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(10px);
+  padding: 4px 10px;
+  border-radius: 20px;
+  box-shadow: 0 2px 10px rgba(24, 120, 200, 0.15);
+  animation: fadeIn 0.3s ease;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #18aad8;
+  animation: pulse 1.2s ease infinite;
+  flex-shrink: 0;
+}
+
+.nowText {
+  font-size: 11px;
+  font-weight: 600;
+  color: #1a4060;
+  white-space: nowrap;
+}

@@ -1,0 +1,250 @@
+/* ── 외부 래퍼 ────────────────────────────────────────────── */
+.outer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  animation: fadeUp 0.5s ease;
+}
+
+/* ── iBook 프레임 ──────────────────────────────────────────── */
+.ibookWrap {
+  position: relative;
+  width: 100%;
+  max-width: 680px;
+  filter: drop-shadow(0 20px 60px rgba(0, 0, 0, 0.35));
+}
+
+.ibookImg {
+  width: 100%;
+  display: block;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* ── iBook 화면 오버레이 ───────────────────────────────────── */
+.ibookScreen {
+  position: absolute;
+  top: 9.5%;
+  left: 15.5%;
+  width: 69%;
+  height: 52%;
+  background: rgba(11, 11, 11, 0.90);
+  border-radius: 7px;
+  padding: 24px 28px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  overflow: visible;
+  z-index: 2;
+}
+
+/* ── 섹션 ─────────────────────────────────────────────────── */
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex-shrink: 0;
+}
+
+.sectionLabel {
+  font-family: 'MyoeunHeullim', sans-serif;
+  font-size: clamp(14px, 1.8vw, 20px);
+  color: #aaff44;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+}
+
+/* ── 위치 검색 ────────────────────────────────────────────── */
+.searchWrap { position: relative; }
+.searchRow  { position: relative; display: flex; align-items: center; }
+
+.searchInput {
+  width: 100%;
+  background: rgba(52, 52, 52, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  color: rgba(255, 255, 255, 0.85);
+  padding: 10px 30px 10px 16px;
+  border-radius: 20px;
+  font-size: clamp(12px, 1.3vw, 15px);
+  font-family: 'Noto Sans KR', sans-serif;
+  outline: none;
+  transition: all 0.15s;
+}
+.searchInput::placeholder {
+  color: rgba(255, 255, 255, 0.28);
+}
+.searchInput:focus {
+  background: rgba(62, 62, 62, 0.95);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+.searchInputFilled {
+  background: #84eeda !important;
+  color: #0d2520 !important;
+  border-color: transparent !important;
+}
+.searchInputFilled::placeholder {
+  color: rgba(13, 37, 32, 0.35);
+}
+
+.searchSpinner {
+  position: absolute; right: 10px;
+  width: 13px; height: 13px;
+  border: 2px solid rgba(255, 255, 255, 0.12);
+  border-top-color: #84eeda;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  pointer-events: none;
+}
+.searchCheck {
+  position: absolute; right: 10px;
+  font-size: 12px;
+  color: #84eeda;
+  font-weight: 700;
+  pointer-events: none;
+}
+
+/* ── 드롭다운 ─────────────────────────────────────────────── */
+.dropdown {
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0; right: 0;
+  background: rgba(255, 255, 255, 0.97);
+  border: 2px solid #1a1a1a;
+  border-radius: 12px;
+  box-shadow: 0 10px 36px rgba(0, 0, 0, 0.28);
+  z-index: 1000;
+  list-style: none;
+  overflow: hidden;
+  animation: fadeUp 0.12s ease;
+}
+.dropdownItem {
+  padding: 9px 13px;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(200, 220, 255, 0.28);
+  transition: background 0.1s;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.dropdownItem:last-child { border-bottom: none; }
+.dropdownItem:hover { background: rgba(132, 238, 218, 0.15); }
+.dropdownMain { display: flex; align-items: center; gap: 6px; }
+.dropdownName { font-size: 13px; font-weight: 700; color: #0d0d0d; }
+.dropdownCat {
+  font-size: 10px; color: #fff;
+  background: #1a1a1a;
+  padding: 1px 6px;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+.dropdownAddr { font-size: 11px; color: #7a9ac0; }
+.dropdownLoading,
+.dropdownEmpty {
+  padding: 11px 13px;
+  font-size: 12px;
+  color: #7a9ac0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.dotSpinner {
+  width: 12px; height: 12px;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  border-top-color: #1a1a1a;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+.highlight { color: #1a6b3a; background: rgba(26,107,58,0.12); font-weight: 800; }
+
+/* ── 인원 수 / 식사 스타일 칩 ─────────────────────────────── */
+.chips {
+  display: flex;
+  gap: 4px;
+}
+
+.chip {
+  flex: 1;
+  background: rgba(50, 50, 50, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  color: rgba(255, 255, 255, 0.72);
+  padding: 9px 4px;
+  border-radius: 20px;
+  font-size: clamp(11px, 1.2vw, 14px);
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.14s;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+.chip:hover {
+  background: rgba(65, 65, 65, 0.95);
+  color: rgba(255, 255, 255, 0.9);
+}
+.chipActive {
+  background: #84eeda !important;
+  color: #0d2520 !important;
+  font-weight: 700;
+  border-color: transparent !important;
+}
+
+/* ── 식사 스타일 서브텍스트 ────────────────────────────────── */
+.styleSubtext {
+  font-family: 'GalmuriMono', monospace;
+  font-size: clamp(8.5px, 0.9vw, 10px);
+  color: rgba(255, 255, 255, 0.38);
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  padding-left: 2px;
+  animation: fadeIn 0.2s ease;
+}
+
+/* ── 에러 ──────────────────────────────────────────────────── */
+.error {
+  font-size: 10px;
+  color: #ff7095;
+  line-height: 1.4;
+}
+
+/* ── 제출 버튼 (iBook 하단) ──────────────────────────────── */
+.submitBtn {
+  width: 100%;
+  max-width: 360px;
+  background: #84eeda;
+  color: #0d2a24;
+  border: 2.5px solid #111;
+  padding: 14px 24px;
+  border-radius: 30px;
+  font-size: clamp(15px, 2vw, 18px);
+  font-weight: 800;
+  font-family: 'MyoeunHeullim', sans-serif;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.15s;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.2);
+}
+.submitBtn:hover:not(:disabled) {
+  background: #60e8cc;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+.submitBtn:active:not(:disabled) {
+  transform: translateY(0);
+}
+.submitBtn:disabled {
+  background: rgba(80, 80, 80, 0.55);
+  color: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.1);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+@keyframes spin    { to { transform: rotate(360deg); } }
+@keyframes fadeUp  { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn  { from { opacity: 0; } to { opacity: 1; } }

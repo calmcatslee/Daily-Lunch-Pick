@@ -1,0 +1,45 @@
+.center { min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+.spinner { width: 32px; height: 32px; border: 2px solid var(--border); border-top-color: var(--cyan); border-radius: 50%; animation: spin 0.7s linear infinite; }
+.err { font-size: 14px; color: var(--text-sub); }
+
+.wrap { min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 0 24px 48px; }
+
+.header { width: 100%; max-width: 480px; height: 52px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border); margin-bottom: 32px; }
+.logo { font-family: 'DM Mono', monospace; font-size: 13px; font-weight: 500; letter-spacing: 0.16em; color: var(--text); }
+.logo span { color: var(--text-dim); margin: 0 2px; }
+.badge { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--green); background: var(--green-dim); border: 1px solid rgba(114,196,114,0.2); padding: 3px 9px; border-radius: 2px; letter-spacing: 0.08em; }
+
+.card { width: 100%; max-width: 480px; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 32px 28px; animation: fadeUp 0.4s ease; }
+.meta { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+.chip { background: var(--surface2); border: 1px solid var(--border); color: var(--text-sub); font-size: 11px; font-weight: 500; padding: 4px 10px; border-radius: 20px; }
+.title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 6px; }
+.sub { font-size: 13px; color: var(--text-sub); margin-bottom: 24px; }
+
+/* VOTE LIST */
+.voteList { display: flex; flex-direction: column; gap: 8px; }
+.voteItem { background: var(--surface2); border: 1.5px solid var(--border); border-radius: 10px; padding: 14px 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px; cursor: pointer; transition: all 0.15s; text-align: left; }
+.voteItem:hover { border-color: var(--border-light); }
+.voteItem.sel { border-color: var(--green); background: var(--green-dim); }
+.voteInfo { display: flex; flex-direction: column; gap: 3px; flex: 1; }
+.vName { font-size: 14px; font-weight: 600; color: var(--text); }
+.vCat { font-size: 12px; color: var(--text-sub); }
+.vAddr { font-size: 11px; color: var(--text-dim); }
+.check { width: 22px; height: 22px; border-radius: 50%; border: 1.5px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 12px; color: var(--green); flex-shrink: 0; transition: all 0.14s; }
+.voteItem.sel .check { background: var(--green); border-color: var(--green); color: #0C0C0C; font-weight: 700; }
+.voteBtn { width: 100%; margin-top: 12px; background: var(--green); color: #0C0C0C; border: none; padding: 14px; border-radius: 8px; font-size: 15px; font-weight: 700; transition: all 0.15s; }
+.voteBtn:hover:not(:disabled) { background: #8AD48A; transform: translateY(-1px); }
+.voteBtn:disabled { background: var(--surface2); color: var(--text-dim); cursor: not-allowed; }
+
+/* RESULT */
+.resultWrap { display: flex; flex-direction: column; gap: 16px; }
+.votedMsg { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--green); letter-spacing: 0.08em; }
+.resultList { display: flex; flex-direction: column; gap: 10px; }
+.resultItem { display: flex; flex-direction: column; gap: 6px; padding: 12px 16px; background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; transition: all 0.2s; }
+.resultItem.top { border-color: var(--green); background: var(--green-dim); }
+.resultInfo { display: flex; align-items: center; gap: 10px; }
+.rank { font-size: 16px; flex-shrink: 0; }
+.rName { font-size: 14px; font-weight: 600; color: var(--text); flex: 1; }
+.rCategory { font-size: 11px; color: var(--text-sub); }
+.barWrap { position: relative; height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; }
+.bar { height: 100%; background: var(--green); border-radius: 2px; transition: width 0.6s ease; }
+.pct { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--text-sub); margin-top: 4px; }

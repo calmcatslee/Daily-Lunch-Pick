@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap');
+
+@font-face {
+  font-family: 'GalmuriMono';
+  src: url('/fonts/GalmuriMono.ttc') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'YoonLight';
+  src: url('/fonts/YDPCF-YoonLight-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MyoeunHeullim';
+  src: url('/fonts/Griun_MyoeunHeullim-Rg.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PyeojinGothic';
+  src: url('/fonts/PyeojinGothic-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PyeojinGothic';
+  src: url('/fonts/PyeojinGothic-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PyeojinGothic';
+  src: url('/fonts/PyeojinGothic-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PyeojinGothic';
+  src: url('/fonts/PyeojinGothic-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg-top: #a8d8f0;
+  --bg-mid: #ceeaf9;
+  --bg-bot: #eaf6ff;
+  --surface: rgba(255, 255, 255, 0.62);
+  --surface2: rgba(255, 255, 255, 0.42);
+  --surface-solid: #f0f8ff;
+  --border: rgba(255, 255, 255, 0.88);
+  --border-blue: rgba(100, 190, 240, 0.45);
+  --text: #1a4060;
+  --text-sub: #4a7a9b;
+  --text-dim: #88b4cc;
+  --aqua: #18aad8;
+  --aqua-bright: #2ac8f0;
+  --aqua-dim: rgba(24, 170, 216, 0.12);
+  --aqua-border: rgba(24, 170, 216, 0.3);
+  --green: #44cc88;
+  --green-dim: rgba(68, 204, 136, 0.12);
+  --yellow: #f8cc30;
+  --yellow-dim: rgba(248, 204, 48, 0.15);
+  --red: #f05878;
+  --shadow: 0 8px 32px rgba(24, 120, 200, 0.15);
+  --shadow-sm: 0 2px 12px rgba(24, 120, 200, 0.12);
+  --glass: rgba(255,255,255,0.55);
+  --glass-border: rgba(255,255,255,0.85);
+}
+
+html, body {
+  background-image: url('/bg.png');
+  background-size: cover;
+  background-position: center top;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  /* bg.png 하단 풀밭색에 맞춘 fallback */
+  background-color: #4e8c29;
+  color: var(--text);
+  font-family: 'Noto Sans KR', sans-serif;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+button { font-family: 'Noto Sans KR', sans-serif; cursor: pointer; }
+input, textarea { font-family: 'Noto Sans KR', sans-serif; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+@keyframes rouletteSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(var(--target-deg, 1800deg)); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes bubbleRise {
+  0% { transform: translateY(0) scale(1); opacity: 0.6; }
+  100% { transform: translateY(-120px) scale(1.2); opacity: 0; }
+}
+
+.animate-fadeUp { animation: fadeUp 0.5s ease forwards; }
+.animate-fadeIn { animation: fadeIn 0.3s ease forwards; }
