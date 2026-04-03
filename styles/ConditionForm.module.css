@@ -11,8 +11,9 @@
 /* ── iBook 프레임 ──────────────────────────────────────────── */
 .ibookWrap {
   position: relative;
-  width: 100%;
-  max-width: 780px;
+  width: 55.5vw;
+  max-width: 845px;
+  min-width: 320px;
   filter: drop-shadow(0 20px 60px rgba(0, 0, 0, 0.35));
 }
 
@@ -50,7 +51,7 @@
 
 .sectionLabel {
   font-family: 'YoonLight', sans-serif;
-  font-size: clamp(14px, 1.8vw, 20px);
+  font-size: clamp(22px, 2.2vw, 32px);
   color: #aaff44;
   letter-spacing: 0.02em;
   line-height: 1.1;
@@ -172,7 +173,7 @@
   color: rgba(255, 255, 255, 0.72);
   padding: 9px 4px;
   border-radius: 20px;
-  font-size: clamp(11px, 1.2vw, 14px);
+  font-size: clamp(12px, 1.1vw, 15px);
   font-family: 'Noto Sans KR', sans-serif;
   font-weight: 500;
   cursor: pointer;
@@ -249,19 +250,19 @@
 @keyframes fadeUp  { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes fadeIn  { from { opacity: 0; } to { opacity: 1; } }
 
-/* ── 태블릿 (768px) ─────────────────────────────────────────── */
+/* ── 태블릿 (768px): Figma 768×1024 기준 ───────────────────── */
 @media (max-width: 768px) {
   .ibookScreen {
     top: 12%;
     left: 21%;
     width: 58%;
     height: 50%;
-    padding: 14px 14px 10px;
-    gap: 6px;
+    padding: 16px 16px 10px;
+    gap: 8px;
   }
-  .sectionLabel { font-size: 12px; }
-  .chip { font-size: 10px; padding: 7px 3px; }
-  .searchInput { font-size: 11px; padding: 8px 12px; }
+  .sectionLabel { font-size: 22px; }
+  .chip { font-size: 13px; padding: 10px 5px; }
+  .searchInput { font-size: 13px; padding: 10px 14px; }
 }
 
 /* ── 모바일 (480px 이하) ─────────────────────────────────────── */
@@ -272,20 +273,20 @@
     left: 21%;
     width: 58%;
     height: 50%;
-    padding: 10px 10px 8px;
-    gap: 5px;
+    padding: 12px 12px 8px;
+    gap: 6px;
   }
   .section { gap: 3px; }
-  .sectionLabel { font-size: 11px; }
+  .sectionLabel { font-size: 16px; }
   .chip {
-    font-size: 9.5px;
-    padding: 6px 2px;
+    font-size: 11px;
+    padding: 8px 3px;
     border-radius: 14px;
   }
   .chips { gap: 3px; }
   .searchInput {
     font-size: 11px;
-    padding: 7px 10px;
+    padding: 8px 10px;
     border-radius: 14px;
   }
   .styleSubtext { display: none; }

@@ -84,15 +84,6 @@ export default function DeviceLayer() {
     setTimeout(() => setGameboyPressed(false), 200)
   }, [])
 
-  // Mobile: 모서리 탭하면 디바이스 보이기
-  const [mobileReveal, setMobileReveal] = useState({
-    pager: false, gameboy: false, tincase: false, musicplayer: false
-  })
-
-  const toggleMobileDevice = (name) => {
-    setMobileReveal(prev => ({ ...prev, [name]: !prev[name] }))
-  }
-
   return (
     <div className={s.layer} aria-hidden="true">
 
@@ -123,7 +114,7 @@ export default function DeviceLayer() {
 
       {/* ── Pager ── */}
       <div
-        className={`${s.device} ${s.pager} ${mobileReveal.pager ? s.mobileShow : ''}`}
+        className={`${s.device} ${s.pager}`}
         onClick={() => playSound(pagerBeepRef)}
         title="클릭하면 삐삐!"
       >
@@ -139,7 +130,7 @@ export default function DeviceLayer() {
 
       {/* ── Gameboy — click press animation ── */}
       <div
-        className={`${s.device} ${s.gameboy} ${mobileReveal.gameboy ? s.mobileShow : ''}`}
+        className={`${s.device} ${s.gameboy}`}
         onClick={handleGameboyClick}
         title="클릭해봐"
       >
@@ -153,7 +144,7 @@ export default function DeviceLayer() {
 
       {/* ── Tincase ── */}
       <div
-        className={`${s.device} ${s.tincase} ${mobileReveal.tincase ? s.mobileShow : ''}`}
+        className={`${s.device} ${s.tincase}`}
         onClick={handleTincaseClick}
         title="클릭해봐"
       >
@@ -177,7 +168,7 @@ export default function DeviceLayer() {
 
       {/* ── Musicplayer ── */}
       <div
-        className={`${s.device} ${s.musicplayer} ${mobileReveal.musicplayer ? s.mobileShow : ''}`}
+        className={`${s.device} ${s.musicplayer}`}
         onClick={() => playSound(mpClickRef)}
         title="클릭해봐"
       >
@@ -188,12 +179,6 @@ export default function DeviceLayer() {
           draggable={false}
         />
       </div>
-
-      {/* ── 모바일 코너 탭 버튼 ── */}
-      <button className={`${s.cornerBtn} ${s.cornerTL}`} onClick={() => toggleMobileDevice('pager')} aria-label="페이저">📟</button>
-      <button className={`${s.cornerBtn} ${s.cornerBL}`} onClick={() => toggleMobileDevice('gameboy')} aria-label="게임보이">🎮</button>
-      <button className={`${s.cornerBtn} ${s.cornerTR}`} onClick={() => toggleMobileDevice('tincase')} aria-label="틴케이스" />
-      <button className={`${s.cornerBtn} ${s.cornerBR}`} onClick={() => toggleMobileDevice('musicplayer')} aria-label="뮤직플레이어">🎵</button>
 
     </div>
   )
