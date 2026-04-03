@@ -26,16 +26,16 @@
 /* ── iBook 화면 오버레이 ───────────────────────────────────── */
 .ibookScreen {
   position: absolute;
-  top: 8%;
-  left: 16%;
-  width: 68%;
-  height: 48%;
+  top: 12%;
+  left: 21%;
+  width: 58%;
+  height: 50%;
   background: transparent;
   border-radius: 7px;
-  padding: 18px 20px 12px;
+  padding: 22px 22px 12px;
   display: flex;
   flex-direction: column;
-  gap: 9px;
+  gap: 8px;
   overflow: hidden;
   z-index: 2;
 }
@@ -252,12 +252,12 @@
 /* ── 태블릿 (768px) ─────────────────────────────────────────── */
 @media (max-width: 768px) {
   .ibookScreen {
-    top: 8%;
-    left: 16%;
-    width: 68%;
-    height: 48%;
+    top: 12%;
+    left: 21%;
+    width: 58%;
+    height: 50%;
     padding: 14px 14px 10px;
-    gap: 7px;
+    gap: 6px;
   }
   .sectionLabel { font-size: 12px; }
   .chip { font-size: 10px; padding: 7px 3px; }
@@ -268,12 +268,12 @@
 @media (max-width: 480px) {
   .ibookWrap { max-width: 100%; }
   .ibookScreen {
-    top: 8%;
-    left: 16%;
-    width: 68%;
-    height: 48%;
-    padding: 12px 12px 8px;
-    gap: 6px;
+    top: 12%;
+    left: 21%;
+    width: 58%;
+    height: 50%;
+    padding: 10px 10px 8px;
+    gap: 5px;
   }
   .section { gap: 3px; }
   .sectionLabel { font-size: 11px; }
