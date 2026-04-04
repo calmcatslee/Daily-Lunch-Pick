@@ -148,11 +148,15 @@
 .cornerBtn { display: none; }
 
 /* ════════════════════════════════════════════════════════════
-   반응형
+   반응형 — Figma 브레이크포인트 기준
+   375~767  → Figma 375×667
+   768~1279 → Figma 768×1024
+   1280~1919 → Figma 1280×800 (기본값)
+   1920+    → Figma 1920×1080
    ════════════════════════════════════════════════════════════*/
 
-/* ── 1600px+ ── */
-@media (min-width: 1600px) {
+/* ── 1920px+ : Figma 1920×1080 ── */
+@media (min-width: 1920px) {
   .pager       { width: clamp(230px, 23vw, 440px); left: 1%; top: 5%; }
   .gameboy     { width: clamp(240px, 25vw, 475px); left: 1%; bottom: -12%; }
   .tincase     { width: clamp(260px, 29vw, 550px); right: -4%; top: -4%; }
@@ -160,112 +164,70 @@
   .cd          { width: clamp(250px, 27vw, 510px); }
 }
 
-/* ── 1025px ~ 1279px ── */
-@media (max-width: 1279px) and (min-width: 1025px) {
-  .pager       { left: 0%; top: 8%; width: clamp(140px, 20vw, 280px); }
-  .gameboy     { left: 0%; bottom: -10%; width: clamp(150px, 22vw, 305px); }
-  .tincase     { right: -3%; top: -3%; width: clamp(160px, 25vw, 345px); }
-  .musicplayer { right: -2%; bottom: 5%; width: clamp(155px, 23vw, 320px); }
-  .cd          { width: clamp(160px, 23vw, 320px); }
-}
-
-/* ── 769px ~ 1024px: 디바이스 작게, 화면 끝에 살짝 걸침 ── */
-@media (max-width: 1024px) and (min-width: 769px) {
-  .pager       { left: -2%; top: 10%; width: clamp(110px, 18vw, 200px); animation-name: enterFromLeft; }
-  .gameboy     { left: -2%; bottom: -8%; width: clamp(115px, 19vw, 210px); animation-name: enterFromBottomLeft; }
-  .tincase     { right: -3%; top: -2%; width: clamp(120px, 21vw, 235px); animation-name: enterFromRight; }
-  .musicplayer { right: -2%; bottom: 5%; width: clamp(120px, 20vw, 225px); animation-name: enterFromBottomRight; }
-  .cd          { width: clamp(120px, 20vw, 220px); top: -13vw; }
-  .cdHovered   { top: -2%; }
-}
-
-/* ── 태블릿/모바일 (768px 이하): Figma 좌표 그대로 적용 ── */
-@media (max-width: 768px) {
-  /* CD — 우상단, 절반 이상 화면 밖 */
+/* ── 768~1279px : Figma 768×1024 ── */
+@media (max-width: 1279px) and (min-width: 768px) {
   .cd {
-    width: 431px;
+    width: clamp(200px, 56vw, 431px);
     top: -20%;
     left: 69.8%;
     transform: translateX(0);
   }
   .cdHovered { top: -8%; }
-
-  /* Pager — 좌상단 */
   .pager {
-    left: 7.3%;
-    top: 7.4%;
-    width: 133px;
+    left: 7.3%; top: 7.4%;
+    width: clamp(100px, 17.3vw, 133px);
     transition: none;
-    animation-name: enterFromLeft;
   }
-
-  /* Gameboy — 좌측 중단 */
   .gameboy {
-    left: 12.8%;
-    top: 23%;
-    bottom: auto;
-    width: 133px;
+    left: 12.8%; top: 23%; bottom: auto;
+    width: clamp(100px, 17.3vw, 133px);
     transition: none;
-    animation-name: enterFromBottomLeft;
   }
-
-  /* Tincase — 우상단 */
   .tincase {
-    right: 6%;
-    top: 6.8%;
-    width: 187px;
+    right: 6%; top: 6.8%;
+    width: clamp(130px, 24.3vw, 187px);
     transition: none;
-    animation-name: enterFromRight;
   }
-
-  /* Musicplayer — 우측 중단 */
   .musicplayer {
-    right: 15.2%;
-    top: 28.2%;
-    bottom: auto;
-    width: 153px;
+    right: 15.2%; top: 28.2%; bottom: auto;
+    width: clamp(110px, 19.9vw, 153px);
     transition: none;
-    animation-name: enterFromBottomRight;
   }
-
   .cornerBtn { display: none; }
 }
 
-/* ── 모바일 (430px 이하) ─────────────────────────────────── */
-@media (max-width: 430px) {
+/* ── 0~767px : Figma 375×667 ── */
+@media (max-width: 767px) {
   .cd {
-    width: 80px;
-    top: -8%;
-    left: 65%; transform: translateX(-50%) rotate(-36deg);
+    width: 68.5vw;
+    top: -16%;
+    left: 60.8%;
+    transform: translateX(0) rotate(-36deg);
   }
-  .cdHovered { top: 0%; }
+  .cdHovered { top: -4%; }
   .pager {
-    left: 2%; top: 5%;
-    width: 85px;
+    left: 6.7%; top: 6.4%;
+    width: 16.8vw;
     transform: rotate(0deg);
+    transition: none;
   }
   .gameboy {
-    left: 5%; top: 20%; bottom: auto;
-    width: 75px;
+    left: 12%; top: 18.3%; bottom: auto;
+    width: 16.8vw;
     transform: rotate(7deg);
+    transition: none;
   }
   .tincase {
-    right: auto; left: 68%; top: 5%;
-    width: 105px;
+    right: 4%; top: 7.9%;
+    width: 23.7vw;
     transform: rotate(-6deg);
+    transition: none;
   }
   .musicplayer {
-    right: auto; left: 62%; top: 25%; bottom: auto;
-    width: 90px;
+    right: 7.5%; top: 23.5%; bottom: auto;
+    width: 19.5vw;
     transform: rotate(-7deg);
+    transition: none;
   }
-}
-
-/* ── 375px 이하: Figma 375×667 기준 ── */
-@media (max-width: 375px) {
-  .cd          { top: -16%; left: 60.8%; width: 257px; }
-  .pager       { left: 6.7%; top: 6.4%; width: 63px; }
-  .gameboy     { left: 12%; top: 18.3%; bottom: auto; width: 63px; }
-  .tincase     { right: 4%; top: 7.9%; width: 89px; }
-  .musicplayer { right: 7.5%; top: 23.5%; bottom: auto; width: 73px; }
+  .cornerBtn { display: none; }
 }
