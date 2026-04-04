@@ -79,29 +79,19 @@ export default function RouletteView({ conditions, restaurants, onReset }) {
         <div className={s.resultOverlay}>
           <div className={s.resultTags}>
             {result.category_name && (
-              <span className={s.tagFood}>
-                <img src="/result-assets/recommend/tag_food.png" alt="" className={s.tagBgImg} draggable={false} />
-                <span className={s.tagText}>{result.category_name.split('>').pop()?.trim()}</span>
-              </span>
+              <span className={s.tagFood}>{result.category_name.split('>').pop()?.trim()}</span>
             )}
-            <span className={s.tagForwho}>
-              <img src="/result-assets/recommend/tag_forwho.png" alt="" className={s.tagBgImg} draggable={false} />
-              <span className={s.tagTextW}>모두에게 추천</span>
-            </span>
+            <span className={s.tagForwho}>모두에게 추천</span>
           </div>
           <h2 className={s.resultName}>{result.place_name}</h2>
           {result.road_address_name && <p className={s.resultAddr}>{result.road_address_name}</p>}
         </div>
       )}
 
-      {/* 버튼 — PNG 이미지 */}
+      {/* 버튼 — CSS */}
       <div className={s.actions}>
-        <button className={s.imgBtn} onClick={spin} disabled={spinning}>
-          <img src="/result-assets/random/btn_retry.png" alt="다시 돌리기" className={s.actionImg} draggable={false} />
-        </button>
-        <button className={s.imgBtn} onClick={onReset}>
-          <img src="/result-assets/random/btn_home.png" alt="처음으로" className={s.actionImg} draggable={false} />
-        </button>
+        <button className={`${s.actionBtn} ${s.retryBtn}`} onClick={spin} disabled={spinning}>다시 돌리기</button>
+        <button className={`${s.actionBtn} ${s.homeBtn}`} onClick={onReset}>처음으로</button>
       </div>
     </div>
   )

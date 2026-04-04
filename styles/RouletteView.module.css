@@ -25,22 +25,42 @@
   animation: fadeUp 0.4s ease;
   backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
 }
-.resultTags { display: flex; gap: 8px; }
-.tagFood, .tagForwho { position: relative; display: inline-flex; align-items: center; justify-content: center; }
-.tagBgImg { height: 28px; width: auto; display: block; user-select: none; }
-.tagText, .tagTextW {
-  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
-  font-family: 'YoonLight', sans-serif; font-size: 11px; font-weight: 700;
-  white-space: nowrap; pointer-events: none; color: #1a1a1a;
+.resultTags { display: flex; gap: 8px; flex-wrap: wrap; }
+.tagFood, .tagForwho {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 6px 16px;
+  border-radius: 14px;
+  font-family: 'PyeojinGothic', sans-serif;
+  font-size: clamp(12px, 1.3vw, 15px);
+  font-weight: 700;
+  white-space: nowrap;
+  line-height: 1.4;
+  letter-spacing: 0em;
 }
+.tagFood { background: #E5FF00; color: #1a1a1a; }
+.tagForwho { background: #FFFDE6; color: #1a1a1a; }
 .resultName { font-family: 'PyeojinGothic', sans-serif; font-size: clamp(22px, 3vw, 28px); font-weight: 700; color: #d4ff00; }
 .resultAddr { font-family: 'PyeojinGothic', sans-serif; font-size: 13px; color: rgba(255,255,255,0.55); }
 
-/* 버튼 — PNG 이미지 */
+/* 버튼 — CSS */
 .actions { display: flex; gap: 10px; width: 100%; }
-.imgBtn { flex: 1; background: none; border: none; padding: 0; cursor: pointer; transition: transform 0.15s; }
-.imgBtn:hover:not(:disabled) { transform: translateY(-2px); }
-.imgBtn:disabled { opacity: 0.6; cursor: not-allowed; }
-.actionImg { width: 100%; height: auto; display: block; filter: drop-shadow(0 3px 8px rgba(0,0,0,0.15)); }
+.actionBtn {
+  flex: 1;
+  height: clamp(44px, 5vw, 56px);
+  border: 2px solid transparent;
+  border-radius: 14px;
+  font-family: 'PyeojinGothic', sans-serif;
+  font-size: clamp(14px, 1.5vw, 17px);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  cursor: pointer;
+  transition: transform 0.15s;
+  outline: none;
+}
+.actionBtn:hover:not(:disabled) { transform: translateY(-2px); }
+.actionBtn:disabled { opacity: 0.6; cursor: not-allowed; }
+.retryBtn { background: #84eeda; color: #1a1a1a; }
+.homeBtn { background: #f0efe8; color: #1a1a1a; }
 
 @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
