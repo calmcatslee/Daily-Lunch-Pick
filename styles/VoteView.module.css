@@ -11,21 +11,22 @@
 .cardInner { display: flex; align-items: center; gap: 12px; }
 .numImg { width: 24px; height: 24px; flex-shrink: 0; user-select: none; }
 .info { display: flex; flex-direction: column; gap: 2px; flex: 1; min-width: 0; }
-.name { font-family: 'PyeojinGothic', sans-serif; font-size: clamp(15px, 2vw, 25px); font-weight: 700; color: #fff; line-height: 27px; text-shadow: 0 4px 4px rgba(0,0,0,0.25); }
-.addr { font-family: 'PyeojinGothic', sans-serif; font-size: clamp(11px, 1.3vw, 16px); color: #fff; text-shadow: 0 4px 4px rgba(0,0,0,0.25); letter-spacing: -0.48px; }
+.name { font-family: 'PyeojinGothic', sans-serif; font-size: 25px; font-weight: 700; color: #fff; line-height: 27px; text-shadow: 0 4px 4px rgba(0,0,0,0.25); }
+.addr { font-family: 'PyeojinGothic', sans-serif; font-size: 16px; color: #fff; line-height: 27px; text-shadow: 0 4px 4px rgba(0,0,0,0.25); letter-spacing: -0.48px; }
 
 .mapBtn {
   flex-shrink: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 9px 16px;
+  width: 100px;
+  height: 40px;
   border-radius: 10px;
   background: #000000;
   border: 1px solid #000000;
   color: #ffffff;
   font-family: 'PyeojinGothic', sans-serif;
-  font-size: clamp(14px, 1.6vw, 20px);
+  font-size: 20px;
   font-weight: 400;
   letter-spacing: 0em;
   line-height: 27px;
@@ -35,16 +36,18 @@
   box-shadow: 3px 4px 15px rgba(0, 0, 0, 0.3);
 }
 .mapBtn:hover { transform: scale(1.05); }
+.mapFull { display: inline; }
+.mapShort { display: none; }
 
-/* 버튼 — CSS */
+/* 버튼 — 피그마 매칭 */
 .actions { display: flex; gap: 10px; }
 .actionBtn {
   flex: 1;
-  height: clamp(48px, 5.2vw, 65px);
+  height: 65px;
   border: 4px solid #000000;
   border-radius: 15px;
   font-family: 'PyeojinGothic', sans-serif;
-  font-size: clamp(16px, 2.1vw, 26px);
+  font-size: 26px;
   font-weight: 400;
   letter-spacing: 0em;
   line-height: 27px;
@@ -67,7 +70,7 @@
 
 /* 공유 */
 .shareWrap { display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center; padding: 20px 0; }
-.shareTitle { font-family: 'PyeojinGothic', sans-serif; font-size: clamp(20px, 2.5vw, 26px); font-weight: 700; color: #1a1a1a; }
+.shareTitle { font-family: 'PyeojinGothic', sans-serif; font-size: 26px; font-weight: 700; color: #1a1a1a; }
 .shareSub { font-family: 'PyeojinGothic', sans-serif; font-size: 13px; color: #5a5a5a; line-height: 1.7; }
 
 .linkBox {
@@ -95,5 +98,16 @@
   white-space: nowrap;
 }
 .copyBtn:hover { transform: scale(1.05); }
+
+/* ── 375~767px ──────────────────────────────────────────────── */
+@media (max-width: 767px) {
+  .name { font-size: 20px; }
+  .addr { font-size: 14px; letter-spacing: -0.42px; }
+  .mapBtn { width: 47px; height: 33px; font-size: 19px; padding: 0; }
+  .mapFull { display: none; }
+  .mapShort { display: inline; }
+  .actionBtn { height: 55px; font-size: 22px; }
+  .shareTitle { font-size: 20px; }
+}
 
 @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }

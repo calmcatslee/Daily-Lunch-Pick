@@ -66,7 +66,7 @@ export default function ResultView({ conditions, restaurants, onReset }) {
                 className={s.mapBtn}
                 href={`https://map.naver.com/p/search/${encodeURIComponent((r.place_name || '') + ' ' + (r.road_address_name || r.address_name || ''))}`}
                 target="_blank" rel="noopener noreferrer"
-              >지도보기</a>
+              ><span className={s.mapFull}>지도 보기</span><span className={s.mapShort}>지도</span></a>
             </div>
             <div className={s.recTags}>
               {r.menu && (
