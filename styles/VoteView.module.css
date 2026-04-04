@@ -64,7 +64,7 @@
 .actionBtn:disabled { opacity: 0.5; cursor: not-allowed; }
 .retryBtn { flex: 1; background: rgba(173, 255, 239, 0.8); }
 .primaryBtn { flex: 2; background: rgba(0, 255, 106, 0.8); }
-.homeBtn { flex: 1; background: rgba(255, 255, 255, 0.8); }
+.homeBtn { width: 100%; flex: none; background: rgba(255, 255, 255, 0.8); }
 .seeResultBtn { width: 100%; flex: none; background: rgba(0, 255, 106, 0.8); }
 
 /* 공유 */

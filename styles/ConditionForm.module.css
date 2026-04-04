@@ -32,17 +32,17 @@
 /* ── 화면 오버레이 (iBook 기준) ────────────────────────────── */
 .screenOverlay {
   position: absolute;
-  top: 9.5%;
-  left: 15.5%;
-  width: 69%;
-  height: 52%;
-  background: rgba(11, 11, 11, 0.90);
+  top: 10%;
+  left: 16%;
+  width: 68%;
+  height: 56%;
+  background: transparent;
   border-radius: 7px;
-  padding: 24px 28px 18px;
+  padding: 28px 32px 20px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  overflow: visible;
+  gap: 16px;
+  overflow: hidden;
   z-index: 2;
 }
 
@@ -55,7 +55,7 @@
 }
 
 .sectionLabel {
-  font-family: 'MyoeunHeullim', sans-serif;
+  font-family: 'YoonLight', sans-serif;
   font-size: clamp(14px, 1.8vw, 20px);
   color: #aaff44;
   letter-spacing: 0.02em;
@@ -74,7 +74,7 @@
   padding: 10px 30px 10px 16px;
   border-radius: 20px;
   font-size: clamp(12px, 1.3vw, 15px);
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'MyoeunHeullim', sans-serif;
   outline: none;
   transition: all 0.15s;
 }
@@ -179,7 +179,7 @@
   padding: 9px 4px;
   border-radius: 20px;
   font-size: clamp(11px, 1.2vw, 14px);
-  font-family: 'YoonLight', sans-serif;
+  font-family: 'MyoeunHeullim', sans-serif;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.14s;
