@@ -231,16 +231,7 @@
   .cornerBtn { display: none; }
 }
 
-/* ── 375px 이하: Figma 375×667 기준 ── */
-@media (max-width: 375px) {
-  .cd          { top: -16%; left: 60.8%; width: 257px; }
-  .pager       { left: 6.7%; top: 6.4%; width: 63px; }
-  .gameboy     { left: 12%; top: 18.3%; bottom: auto; width: 63px; }
-  .tincase     { right: 4%; top: 7.9%; width: 89px; }
-  .musicplayer { right: 7.5%; top: 23.5%; bottom: auto; width: 73px; }
-}
-
-/* ── 모바일 (375px) — Figma 375*667 기준 ─────────────────── */
+/* ── 모바일 (430px 이하) ─────────────────────────────────── */
 @media (max-width: 430px) {
   .cd {
     width: 80px;
@@ -268,4 +259,13 @@
     width: 90px;
     transform: rotate(-7deg);
   }
+}
+
+/* ── 375px 이하: Figma 375×667 기준 ── */
+@media (max-width: 375px) {
+  .cd          { top: -16%; left: 60.8%; width: 257px; }
+  .pager       { left: 6.7%; top: 6.4%; width: 63px; }
+  .gameboy     { left: 12%; top: 18.3%; bottom: auto; width: 63px; }
+  .tincase     { right: 4%; top: 7.9%; width: 89px; }
+  .musicplayer { right: 7.5%; top: 23.5%; bottom: auto; width: 73px; }
 }
