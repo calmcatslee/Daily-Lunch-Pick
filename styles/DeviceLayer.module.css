@@ -239,3 +239,33 @@
   .tincase     { right: 4%; top: 7.9%; width: 89px; }
   .musicplayer { right: 7.5%; top: 23.5%; bottom: auto; width: 73px; }
 }
+
+/* ── 모바일 (375px) — Figma 375*667 기준 ─────────────────── */
+@media (max-width: 430px) {
+  .cd {
+    width: 80px;
+    top: -8%;
+    left: 65%; transform: translateX(-50%) rotate(-36deg);
+  }
+  .cdHovered { top: 0%; }
+  .pager {
+    left: 2%; top: 5%;
+    width: 85px;
+    transform: rotate(0deg);
+  }
+  .gameboy {
+    left: 5%; top: 20%; bottom: auto;
+    width: 75px;
+    transform: rotate(7deg);
+  }
+  .tincase {
+    right: auto; left: 68%; top: 5%;
+    width: 105px;
+    transform: rotate(-6deg);
+  }
+  .musicplayer {
+    right: auto; left: 62%; top: 25%; bottom: auto;
+    width: 90px;
+    transform: rotate(-7deg);
+  }
+}
