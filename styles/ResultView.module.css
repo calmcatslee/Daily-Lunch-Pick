@@ -20,7 +20,7 @@
 
 /* 카드 헤더 */
 .recHeader { display: flex; align-items: flex-start; gap: 12px; }
-.recNumImg { width: 26px; height: 26px; flex-shrink: 0; margin-top: 2px; user-select: none; }
+.recNumImg { width: clamp(26px, 3vw, 34px); height: clamp(26px, 3vw, 34px); flex-shrink: 0; margin-top: 2px; user-select: none; }
 .recInfo { display: flex; flex-direction: column; gap: 3px; flex: 1; min-width: 0; }
 .recName { font-family: 'PyeojinGothic', sans-serif; font-size: clamp(16px, 2vw, 20px); font-weight: 700; color: #fff; line-height: 1.3; }
 .recAddr { font-family: 'PyeojinGothic', sans-serif; font-size: clamp(11px, 1.1vw, 13px); color: rgba(255,255,255,0.5); }
@@ -28,19 +28,19 @@
 /* 지도보기 — PNG 이미지 버튼 */
 .mapBtn { flex-shrink: 0; text-decoration: none; margin-top: 2px; transition: transform 0.15s; }
 .mapBtn:hover { transform: scale(1.05); }
-.btnImg { height: 30px; width: auto; display: block; }
+.btnImg { height: clamp(28px, 3vw, 36px); width: auto; display: block; }
 
-/* 태그 — CSS 기반 */
-.recTags { display: flex; gap: 6px; flex-wrap: wrap; }
+/* 태그 — CSS 기반 (피그마 매칭) */
+.recTags { display: flex; gap: 8px; flex-wrap: wrap; }
 .tagFood, .tagForwho {
   display: inline-flex; align-items: center; justify-content: center;
-  padding: 5px 14px;
-  border-radius: 20px;
+  padding: 6px 16px;
+  border-radius: 14px;
   font-family: 'PyeojinGothic', sans-serif;
-  font-size: clamp(10px, 1.1vw, 12px);
+  font-size: clamp(12px, 1.3vw, 15px);
   font-weight: 700;
   white-space: nowrap;
-  line-height: 1.3;
+  line-height: 1.4;
 }
 .tagFood {
   background: #E5FF00;
@@ -51,14 +51,15 @@
   color: #1a1a1a;
 }
 
-/* 하단 버튼 — PNG 이미지 */
+/* 하단 버튼 — PNG 이미지 (높이 통일) */
 .actions { display: flex; gap: 10px; margin-top: 6px; }
 .imgBtn {
   flex: 1; background: none; border: none; padding: 0; cursor: pointer;
   transition: transform 0.15s;
+  height: clamp(44px, 5vw, 56px);
 }
 .imgBtn:hover { transform: translateY(-2px); }
-.actionImg { width: 100%; height: auto; display: block; filter: drop-shadow(0 3px 8px rgba(0,0,0,0.15)); }
+.actionImg { width: 100%; height: 100%; display: block; object-fit: contain; object-position: center; filter: drop-shadow(0 3px 8px rgba(0,0,0,0.15)); }
 
 @keyframes spin { to { transform: rotate(360deg); } }
 @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }

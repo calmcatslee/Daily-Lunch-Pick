@@ -42,16 +42,17 @@ export default function Home() {
       </Head>
 
       <div className={s.wrap}>
+        {/* 타이틀 — 항상 고정 표시 (main 바깥에 배치) */}
+        <div className={s.titleWrap}>
+          <img src="/title.png" alt="오늘 점심 뭐 먹지?" className={s.titleImg} draggable={false} />
+        </div>
+
         {/* 날씨 위젯 — 스크롤 시 고정 */}
         <div className={s.weatherFixed}>
           <WeatherWidget lat={weatherCoords.lat} lon={weatherCoords.lon} />
         </div>
 
         <main className={s.main}>
-          {/* 타이틀 — 항상 고정 표시 */}
-          <div className={s.titleWrap}>
-            <img src="/title.png" alt="오늘 점심 뭐 먹지?" className={s.titleImg} draggable={false} />
-          </div>
 
           {/* Default Screen */}
           {step === 'form' && (
