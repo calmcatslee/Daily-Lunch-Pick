@@ -48,12 +48,14 @@ export default function Home() {
         </div>
 
         <main className={s.main}>
+          {/* 타이틀 — 항상 고정 표시 */}
+          <div className={s.titleWrap}>
+            <img src="/title.png" alt="오늘 점심 뭐 먹지?" className={s.titleImg} draggable={false} />
+          </div>
+
           {/* Default Screen */}
           {step === 'form' && (
             <div className={s.modeWrap}>
-              <div className={s.titleWrap}>
-                <img src="/title.png" alt="오늘 점심 뭐 먹지?" className={s.titleImg} draggable={false} />
-              </div>
               <ConditionForm onSubmit={handleFormSubmit} onPlaceSelect={setWeatherCoords} />
             </div>
           )}

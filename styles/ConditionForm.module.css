@@ -276,8 +276,8 @@
   z-index: 2;
 }
 
-/* ── 모바일 (Nokia) 폼 스타일 조정 ───────────────────────── */
-@media (max-width: 430px) {
+/* ── 모바일 (Nokia) 폼 스타일 조정 — 375~767px ────────────── */
+@media (max-width: 767px) {
   .sectionLabel {
     font-size: 23px;
     color: #e5ff00;
