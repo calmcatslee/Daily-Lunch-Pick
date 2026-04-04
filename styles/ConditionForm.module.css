@@ -245,6 +245,63 @@
   box-shadow: none;
 }
 
+/* ── Nokia N80 프레임 (375px 모바일) ─────────────────────── */
+.nokiaWrap {
+  position: relative;
+  width: 100%;
+  max-width: 355px;
+  filter: drop-shadow(0 20px 60px rgba(0, 0, 0, 0.35));
+}
+
+.nokiaImg {
+  width: 100%;
+  display: block;
+  user-select: none;
+  pointer-events: none;
+}
+
+.nokiaScreen {
+  position: absolute;
+  top: 24.6%;
+  left: 16.3%;
+  width: 66.5%;
+  height: 61.4%;
+  background: rgba(8, 8, 6, 0.90);
+  border-radius: 4px;
+  padding: 14px 12px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow: visible;
+  z-index: 2;
+}
+
+/* ── 모바일 (Nokia) 폼 스타일 조정 ───────────────────────── */
+@media (max-width: 430px) {
+  .sectionLabel {
+    font-size: 23px;
+    color: #e5ff00;
+  }
+  .searchInput {
+    padding: 7px 24px 7px 12px;
+    font-size: 12px;
+    border-radius: 14px;
+  }
+  .chip {
+    padding: 6px 3px;
+    font-size: 12px;
+    border-radius: 14px;
+  }
+  .styleSubtext {
+    font-size: 8px;
+  }
+  .submitBtn {
+    max-width: 280px;
+    padding: 11px 18px;
+    font-size: 14px;
+  }
+}
+
 @keyframes spin    { to { transform: rotate(360deg); } }
 @keyframes fadeUp  { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes fadeIn  { from { opacity: 0; } to { opacity: 1; } }
