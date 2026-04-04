@@ -30,19 +30,26 @@
 .mapBtn:hover { transform: scale(1.05); }
 .btnImg { height: 30px; width: auto; display: block; }
 
-/* 태그 — PNG 이미지 기반 */
+/* 태그 — CSS 기반 */
 .recTags { display: flex; gap: 6px; flex-wrap: wrap; }
 .tagFood, .tagForwho {
-  position: relative; display: inline-flex; align-items: center; justify-content: center;
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-family: 'PyeojinGothic', sans-serif;
+  font-size: clamp(10px, 1.1vw, 12px);
+  font-weight: 700;
+  white-space: nowrap;
+  line-height: 1.3;
 }
-.tagBgImg { height: 28px; width: auto; display: block; user-select: none; }
-.tagText {
-  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
-  font-family: 'YoonLight', sans-serif; font-size: 11px; font-weight: 700;
-  white-space: nowrap; pointer-events: none;
+.tagFood {
+  background: #E5FF00;
+  color: #1a1a1a;
 }
-.tagFood .tagText { color: #1a1a1a; }
-.tagForwho .tagText { color: #1a1a1a; }
+.tagForwho {
+  background: #FFFDE6;
+  color: #1a1a1a;
+}
 
 /* 하단 버튼 — PNG 이미지 */
 .actions { display: flex; gap: 10px; margin-top: 6px; }
