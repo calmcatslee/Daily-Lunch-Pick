@@ -93,7 +93,7 @@ export default function ConditionForm({ onSubmit, onPlaceSelect }) {
     setError('')
     try {
       const res = await fetch(
-        `/api/search?lat=${selectedPlace.lat}&lon=${selectedPlace.lon}&name=${encodeURIComponent(selectedPlace.name)}`
+        `/api/search?lat=${selectedPlace.lat}&lon=${selectedPlace.lon}&name=${encodeURIComponent(selectedPlace.name)}&style=${encodeURIComponent(style)}`
       )
       const data = await res.json()
       if (data.documents?.length > 0) {
