@@ -46,13 +46,13 @@
   display: flex;
   justify-content: center;
   padding-top: 18px;
-  z-index: 30;
+  padding-bottom: 10px;
+  z-index: 40;
   pointer-events: none;
-  animation: fadeUp 0.5s ease;
 }
 .titleImg {
   width: clamp(240px, 38vw, 420px);
-  max-width: 100%;
+  max-width: 90%;
   filter: drop-shadow(0 4px 16px rgba(0,0,0,0.15));
   user-select: none;
   pointer-events: auto;
@@ -70,28 +70,41 @@
   animation: fadeUp 0.4s ease;
 }
 
-/* 탭 바 — 투명 PNG 이미지 기반 */
+/* 탭 바 — CSS 기반 */
 .tabBar {
-  position: relative;
-  margin-bottom: 14px;
-}
-.tabImg {
-  width: 100%;
-  display: block;
-  user-select: none;
-  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.15));
-}
-.tabClickArea {
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
   display: flex;
+  gap: 4px;
+  background: rgba(20, 20, 20, 0.82);
+  border: 1.5px solid rgba(255, 255, 255, 0.10);
+  border-radius: 18px;
+  padding: 5px;
+  margin-bottom: 14px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 .tabBtn {
   flex: 1;
-  background: transparent;
+  padding: 11px 8px;
   border: none;
+  border-radius: 13px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.40);
+  font-family: 'PyeojinGothic', sans-serif;
+  font-size: clamp(13px, 1.4vw, 16px);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
   cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+  white-space: nowrap;
   outline: none;
+}
+.tabActive {
+  background: #d4ff00;
+  color: #1a1a1a;
+}
+.tabBtn:hover:not(.tabActive) {
+  color: rgba(255, 255, 255, 0.70);
 }
 
 /* 조건 칩 */
@@ -102,14 +115,14 @@
   margin-bottom: 16px;
 }
 .condChip {
-  background: rgba(20, 20, 20, 0.88);
-  border: 2px solid #1a1a1a;
-  color: #d4ff00;
-  font-family: 'MyoeunHeullim', sans-serif;
-  font-size: clamp(11px, 1.2vw, 14px);
+  background: #000000;
+  border: 0.3px solid #E5FF00;
+  color: #E5FF00;
+  font-family: 'PyeojinGothic', sans-serif;
+  font-size: clamp(13px, 1.4vw, 16px);
   font-weight: 600;
-  padding: 7px 18px;
-  border-radius: 24px;
+  padding: 10px 22px;
+  border-radius: 15px;
   letter-spacing: 0.02em;
 }
 

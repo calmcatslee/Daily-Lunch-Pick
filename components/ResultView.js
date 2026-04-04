@@ -61,14 +61,12 @@ export default function ResultView({ conditions, restaurants, onReset }) {
                 <span className={s.recName}>{r.place_name}</span>
                 {r.road_address_name && <span className={s.recAddr}>{r.road_address_name}</span>}
               </div>
-              {/* 지도보기 — 투명 PNG 이미지 버튼 */}
+              {/* 지도보기 — CSS 버튼 */}
               <a
                 className={s.mapBtn}
                 href={`https://map.naver.com/p/search/${encodeURIComponent((r.place_name || '') + ' ' + (r.road_address_name || r.address_name || ''))}`}
                 target="_blank" rel="noopener noreferrer"
-              >
-                <img src="/result-assets/recommend/btn_map.png" alt="지도 보기" className={s.btnImg} draggable={false} />
-              </a>
+              >지도보기</a>
             </div>
             <div className={s.recTags}>
               {r.menu && (
@@ -80,14 +78,10 @@ export default function ResultView({ conditions, restaurants, onReset }) {
         ))}
       </div>
 
-      {/* 하단 버튼 — 투명 PNG 이미지 */}
+      {/* 하단 버튼 — CSS */}
       <div className={s.actions}>
-        <button className={s.imgBtn} onClick={fetchRecommendation}>
-          <img src="/result-assets/recommend/btn_retry.png" alt="다시 추천해" className={s.actionImg} draggable={false} />
-        </button>
-        <button className={s.imgBtn} onClick={onReset}>
-          <img src="/result-assets/recommend/btn_home.png" alt="처음으로" className={s.actionImg} draggable={false} />
-        </button>
+        <button className={`${s.actionBtn} ${s.retryBtn}`} onClick={fetchRecommendation}>다시 추천해</button>
+        <button className={`${s.actionBtn} ${s.homeBtn}`} onClick={onReset}>처음으로</button>
       </div>
     </div>
   )
