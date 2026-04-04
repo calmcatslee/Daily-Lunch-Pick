@@ -68,7 +68,7 @@ export default function VoteView({ conditions, restaurants, onReset }) {
             ))}
           </div>
           <div className={s.actions}>
-            <button className={`${s.actionBtn} ${s.retryBtn}`} onClick={refreshCandidates}>후보 다시 섞기</button>
+            <button className={`${s.actionBtn} ${s.retryBtn}`} onClick={refreshCandidates}>다시 추천해</button>
             <button className={`${s.actionBtn} ${s.primaryBtn}`} onClick={createVote} disabled={creating}>{creating ? '생성 중...' : '투표 링크 만들기'}</button>
           </div>
         </>

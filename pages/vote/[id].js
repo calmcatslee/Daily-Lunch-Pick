@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 import s from '../../styles/Vote.module.css'
@@ -12,13 +12,23 @@ export default function VotePage() {
   const [selected, setSelected] = useState(null)
   const [submitting, setSubmitting] = useState(false)
 
-  useEffect(() => {
+  const fetchSession = useCallback(() => {
     if (!id) return
     fetch(`/api/vote/${id}`)
       .then(r => r.json())
       .then(data => { setSession(data); setLoading(false) })
       .catch(() => setLoading(false))
   }, [id])
+
+  // 초기 로드
+  useEffect(() => { fetchSession() }, [fetchSession])
+
+  // 투표 후 5초마다 실시간 결과 폴링
+  useEffect(() => {
+    if (!voted || !id) return
+    const interval = setInterval(fetchSession, 5000)
+    return () => clearInterval(interval)
+  }, [voted, id, fetchSession])
 
   const handleVote = async () => {
     if (!selected) return
@@ -28,7 +38,11 @@ export default function VotePage() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ restaurantId: selected })
     })
-    if (res.ok) setVoted(true)
+    if (res.ok) {
+      const data = await res.json()
+      setSession(prev => ({ ...prev, votes: data.votes }))
+      setVoted(true)
+    }
     setSubmitting(false)
   }
 
@@ -66,6 +80,7 @@ export default function VotePage() {
           {voted ? (
             <div className={s.resultWrap}>
               <p className={s.votedMsg}>✓ 투표 완료!</p>
+              <p className={s.liveHint}>5초마다 자동 갱신 · 총 {total}표</p>
               <div className={s.resultList}>
                 {[...session.restaurants]
                   .sort((a, b) => (session.votes?.[b.id] || 0) - (session.votes?.[a.id] || 0))

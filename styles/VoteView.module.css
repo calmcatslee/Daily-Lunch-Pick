@@ -4,7 +4,6 @@
 
 .card {
   background: rgba(102, 102, 102, 0.5);
-  border: 1px solid white;
   border-radius: 15px; padding: 14px 18px;
   box-shadow: 3px 4px 15px rgba(0, 0, 0, 0.3);
 }
@@ -63,10 +62,10 @@
 }
 .actionBtn:hover:not(:disabled) { transform: translateY(-2px); }
 .actionBtn:disabled { opacity: 0.5; cursor: not-allowed; }
-.retryBtn { background: rgba(173, 255, 239, 0.8); }
-.primaryBtn { background: #e5ff00; }
-.homeBtn { background: rgba(255, 255, 255, 0.8); }
-.seeResultBtn { width: 100%; flex: none; }
+.retryBtn { flex: 1; background: rgba(173, 255, 239, 0.8); }
+.primaryBtn { flex: 2; background: rgba(0, 255, 106, 0.8); }
+.homeBtn { flex: 1; background: rgba(255, 255, 255, 0.8); }
+.seeResultBtn { width: 100%; flex: none; background: rgba(0, 255, 106, 0.8); }
 
 /* 공유 */
 .shareWrap { display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center; padding: 20px 0; }

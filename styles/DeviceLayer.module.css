@@ -157,11 +157,11 @@
 
 /* ── 1920px+ : Figma 1920×1080 ── */
 @media (min-width: 1920px) {
-  .pager       { width: clamp(230px, 23vw, 440px); left: 1%; top: 5%; }
-  .gameboy     { width: clamp(240px, 25vw, 475px); left: 1%; bottom: -12%; }
-  .tincase     { width: clamp(260px, 29vw, 550px); right: -4%; top: -4%; }
-  .musicplayer { width: clamp(250px, 27vw, 510px); right: -2%; bottom: 6%; }
-  .cd          { width: clamp(250px, 27vw, 510px); }
+  .pager       { width: clamp(230px, 24vw, 461px); left: -1%; top: 4%; }
+  .gameboy     { width: clamp(240px, 26vw, 495px); left: -0.5%; bottom: -15.5%; }
+  .tincase     { width: clamp(260px, 30vw, 576px); right: -2.5%; top: 0.5%; }
+  .musicplayer { width: clamp(250px, 28vw, 530px); right: -2.5%; bottom: -0.5%; }
+  .cd          { width: clamp(250px, 28vw, 545px); }
 }
 
 /* ── 768~1279px : Figma 768×1024 ── */

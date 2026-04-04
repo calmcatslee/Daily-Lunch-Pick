@@ -60,9 +60,9 @@ export default function Home() {
             <div className={s.resultWrap}>
               {/* 탭 바 — CSS 기반 */}
               <div className={s.tabBar}>
-                <button className={`${s.tabBtn} ${activeTab === 'recommend' ? s.tabActive : ''}`} onClick={() => setActiveTab('recommend')}>실시간추천</button>
-                <button className={`${s.tabBtn} ${activeTab === 'roulette' ? s.tabActive : ''}`} onClick={() => setActiveTab('roulette')}>랜덤룰렛</button>
-                <button className={`${s.tabBtn} ${activeTab === 'vote' ? s.tabActive : ''}`} onClick={() => setActiveTab('vote')}>팀투표</button>
+                <button className={`${s.tabBtn} ${activeTab === 'recommend' ? s.tabActive : ''}`} onClick={() => setActiveTab('recommend')}>실시간 추천</button>
+                <button className={`${s.tabBtn} ${activeTab === 'roulette' ? s.tabActive : ''}`} onClick={() => setActiveTab('roulette')}>랜덤 룰렛</button>
+                <button className={`${s.tabBtn} ${activeTab === 'vote' ? s.tabActive : ''}`} onClick={() => setActiveTab('vote')}>우리 팀 투표</button>
               </div>
 
               {/* 조건 칩 — Condition.png 스타일 */}
