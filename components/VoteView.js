@@ -62,7 +62,7 @@ export default function VoteView({ conditions, restaurants, onReset }) {
                   </div>
                   <a className={s.mapBtn}
                     href={`https://map.naver.com/p/search/${encodeURIComponent((r.place_name || '') + ' ' + (r.road_address_name || r.address_name || ''))}`}
-                    target="_blank" rel="noopener noreferrer">지도보기</a>
+                    target="_blank" rel="noopener noreferrer"><span className={s.mapFull}>지도 보기</span><span className={s.mapShort}>지도</span></a>
                 </div>
               </div>
             ))}
