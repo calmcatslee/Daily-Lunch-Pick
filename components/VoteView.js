@@ -80,7 +80,7 @@ export default function VoteView({ conditions, restaurants, onReset }) {
             <span className={s.linkText}>{voteUrl}</span>
             <button className={s.copyBtn} onClick={copyLink}>{copied ? '복사됨 ✓' : '복사'}</button>
           </div>
-          <a className={`${s.actionBtn} ${s.primaryBtn} ${s.seeResultBtn}`} href={voteUrl} target="_blank" rel="noreferrer">실시간 결과 보기</a>
+          <a className={`${s.actionBtn} ${s.primaryBtn} ${s.seeResultBtn}`} href={`${voteUrl}?view=results`} target="_blank" rel="noreferrer">실시간 결과 보기</a>
           <button className={`${s.actionBtn} ${s.homeBtn}`} onClick={onReset}>처음으로</button>
         </div>
       )}

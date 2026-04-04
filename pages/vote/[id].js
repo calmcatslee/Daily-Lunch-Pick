@@ -5,7 +5,8 @@ import s from '../../styles/Vote.module.css'
 
 export default function VotePage() {
   const router = useRouter()
-  const { id } = router.query
+  const { id, view } = router.query
+  const isResultsView = view === 'results'
   const [session, setSession] = useState(null)
   const [loading, setLoading] = useState(true)
   const [voted, setVoted] = useState(false)
@@ -23,12 +24,12 @@ export default function VotePage() {
   // 초기 로드
   useEffect(() => { fetchSession() }, [fetchSession])
 
-  // 투표 후 5초마다 실시간 결과 폴링
+  // 투표 후 또는 결과 보기 모드에서 5초마다 실시간 폴링
   useEffect(() => {
-    if (!voted || !id) return
+    if ((!voted && !isResultsView) || !id) return
     const interval = setInterval(fetchSession, 5000)
     return () => clearInterval(interval)
-  }, [voted, id, fetchSession])
+  }, [voted, isResultsView, id, fetchSession])
 
   const handleVote = async () => {
     if (!selected) return
@@ -77,9 +78,9 @@ export default function VotePage() {
           <h1 className={s.title}>오늘 점심 어디 갈까요?</h1>
           <p className={s.sub}>팀원들과 함께 결정해요</p>
 
-          {voted ? (
+          {(voted || isResultsView) ? (
             <div className={s.resultWrap}>
-              <p className={s.votedMsg}>✓ 투표 완료!</p>
+              <p className={s.votedMsg}>{isResultsView ? '📊 실시간 투표 현황' : '✓ 투표 완료!'}</p>
               <p className={s.liveHint}>5초마다 자동 갱신 · 총 {total}표</p>
               <div className={s.resultList}>
                 {[...session.restaurants]
