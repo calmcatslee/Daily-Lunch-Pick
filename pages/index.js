@@ -41,12 +41,12 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
-      <div className={s.wrap}>
-        {/* 타이틀 — 항상 고정 표시 (main 바깥에 배치) */}
-        <div className={s.titleWrap}>
-          <img src="/title.png" alt="오늘 점심 뭐 먹지?" className={s.titleImg} draggable={false} />
-        </div>
+      {/* 타이틀 — overflow:hidden 영향 없도록 wrap 완전 바깥 배치 */}
+      <div className={s.titleWrap}>
+        <img src="/title.png" alt="오늘 점심 뭐 먹지?" className={s.titleImg} draggable={false} />
+      </div>
 
+      <div className={s.wrap}>
         {/* 날씨 위젯 — 스크롤 시 고정 */}
         <div className={s.weatherFixed}>
           <WeatherWidget lat={weatherCoords.lat} lon={weatherCoords.lon} />
