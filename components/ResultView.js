@@ -10,6 +10,7 @@ const NUM_IMGS = [
 export default function ResultView({ conditions, restaurants, onReset }) {
   const [result, setResult] = useState(null)
   const [loading, setLoading] = useState(true)
+  const [previousIds, setPreviousIds] = useState([])
 
   useEffect(() => { fetchRecommendation() }, [])
 
@@ -19,10 +20,13 @@ export default function ResultView({ conditions, restaurants, onReset }) {
       const res = await fetch('/api/recommend', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ conditions, restaurants }),
+        body: JSON.stringify({ conditions, restaurants, previousIds }),
       })
       const data = await res.json()
       setResult(data)
+      // 다음 재추천 시 이번 결과를 제외할 수 있도록 ID 저장
+      const newIds = (data.recommendations || []).map(r => r.id).filter(Boolean)
+      setPreviousIds(prev => [...new Set([...prev, ...newIds])])
     } catch {
       setResult({
         recommendations: restaurants.slice(0, 3).map(r => ({

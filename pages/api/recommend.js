@@ -1,8 +1,17 @@
 export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).end()
 
-  const { conditions, restaurants } = req.body
+  const { conditions, restaurants, previousIds = [] } = req.body
   const geminiKey = process.env.GEMINI_API_KEY
+
+  // 다시 추천 시 이전 결과를 뒤로 보내고 셔플하여 다양성 확보
+  const shuffled = [...restaurants].sort(() => Math.random() - 0.5)
+  const reordered = previousIds.length > 0
+    ? [
+        ...shuffled.filter(r => !previousIds.includes(r.id)),
+        ...shuffled.filter(r => previousIds.includes(r.id)),
+      ]
+    : shuffled
 
   // 1. 날씨 조회 (Open-Meteo — API 키 불필요)
   let weatherDesc = '알 수 없음'
@@ -40,7 +49,9 @@ export default async function handler(req, res) {
 - 현재 날씨: ${weatherDesc}
 
 [후보 음식점 목록]
-${restaurants.map((r, i) => `${i + 1}. ${r.place_name} (${r.category_name?.split('>').pop()?.trim() || ''}) - ${r.road_address_name || r.address_name}`).join('\n')}
+${reordered.map((r, i) => `${i + 1}. ${r.place_name} (${r.category_name?.split('>').pop()?.trim() || ''}) - ${r.road_address_name || r.address_name}`).join('\n')}
+
+${previousIds.length > 0 ? '[중요] 이전에 추천한 음식점(목록 뒷부분)은 가능하면 피하고, 새로운 조합으로 추천해주세요.' : ''}
 
 [식사 스타일별 추천 가이드]
 - 트렌디: 샐러드/포케/타코/파스타/햄버거/마라탕 등 2030 트렌드 메뉴. 전통 한식/국밥 제외.
@@ -83,7 +94,7 @@ ${restaurants.map((r, i) => `${i + 1}. ${r.place_name} (${r.category_name?.split
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           contents: [{ parts: [{ text: prompt }] }],
-          generationConfig: { temperature: 0.8, maxOutputTokens: 800 }
+          generationConfig: { temperature: 1.0, maxOutputTokens: 800 }
         })
       }
     )
@@ -92,7 +103,7 @@ ${restaurants.map((r, i) => `${i + 1}. ${r.place_name} (${r.category_name?.split
     const parsed = JSON.parse(raw.replace(/```json|```/g, '').trim())
 
     const recommendations = parsed.recommendations.map(rec => ({
-      ...restaurants[rec.index - 1],
+      ...reordered[rec.index - 1],
       menu: rec.menu,
       reason: rec.reason,
       team_fit: rec.team_fit,
