@@ -7,12 +7,6 @@ import VoteView from '../components/VoteView'
 import WeatherWidget from '../components/WeatherWidget'
 import s from '../styles/Home.module.css'
 
-const TAB_IMGS = {
-  recommend: '/result-assets/tabs/tab_recommend_active.png',
-  roulette: '/result-assets/tabs/tab_random_active.png',
-  vote: '/result-assets/tabs/tab_vote_active.png',
-}
-
 export default function Home() {
   const [step, setStep] = useState('form')
   const [activeTab, setActiveTab] = useState('recommend')
@@ -64,20 +58,11 @@ export default function Home() {
           {/* After Search */}
           {step === 'result' && (
             <div className={s.resultWrap}>
-              {/* 탭 바 — 투명 PNG 이미지 사용 */}
+              {/* 탭 바 — CSS 기반 */}
               <div className={s.tabBar}>
-                <img
-                  src={TAB_IMGS[activeTab]}
-                  alt="tabs"
-                  className={s.tabImg}
-                  draggable={false}
-                />
-                {/* 클릭 영역 오버레이 */}
-                <div className={s.tabClickArea}>
-                  <button className={s.tabBtn} onClick={() => setActiveTab('recommend')} />
-                  <button className={s.tabBtn} onClick={() => setActiveTab('roulette')} />
-                  <button className={s.tabBtn} onClick={() => setActiveTab('vote')} />
-                </div>
+                <button className={`${s.tabBtn} ${activeTab === 'recommend' ? s.tabActive : ''}`} onClick={() => setActiveTab('recommend')}>실시간추천</button>
+                <button className={`${s.tabBtn} ${activeTab === 'roulette' ? s.tabActive : ''}`} onClick={() => setActiveTab('roulette')}>랜덤룰렛</button>
+                <button className={`${s.tabBtn} ${activeTab === 'vote' ? s.tabActive : ''}`} onClick={() => setActiveTab('vote')}>팀투표</button>
               </div>
 
               {/* 조건 칩 — Condition.png 스타일 */}

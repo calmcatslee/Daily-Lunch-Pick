@@ -62,20 +62,14 @@ export default function VoteView({ conditions, restaurants, onReset }) {
                   </div>
                   <a className={s.mapBtn}
                     href={`https://map.naver.com/p/search/${encodeURIComponent((r.place_name || '') + ' ' + (r.road_address_name || r.address_name || ''))}`}
-                    target="_blank" rel="noopener noreferrer">
-                    <img src="/result-assets/recommend/btn_map.png" alt="지도 보기" className={s.btnImg} draggable={false} />
-                  </a>
+                    target="_blank" rel="noopener noreferrer">지도보기</a>
                 </div>
               </div>
             ))}
           </div>
           <div className={s.actions}>
-            <button className={s.imgBtn} onClick={refreshCandidates}>
-              <img src="/result-assets/vote/btn_retry.png" alt="다시 추천해" className={s.actionImg} draggable={false} />
-            </button>
-            <button className={s.imgBtn} onClick={createVote} disabled={creating}>
-              <img src="/result-assets/vote/btn_makelink.png" alt="투표 링크 만들기" className={s.actionImg} draggable={false} />
-            </button>
+            <button className={`${s.actionBtn} ${s.retryBtn}`} onClick={refreshCandidates}>후보 다시 섞기</button>
+            <button className={`${s.actionBtn} ${s.primaryBtn}`} onClick={createVote} disabled={creating}>{creating ? '생성 중...' : '투표 링크 만들기'}</button>
           </div>
         </>
       ) : (
@@ -84,16 +78,10 @@ export default function VoteView({ conditions, restaurants, onReset }) {
           <p className={s.shareSub}>팀원들에게 링크를 공유해보세요<br />24시간 동안 유효합니다</p>
           <div className={s.linkBox}>
             <span className={s.linkText}>{voteUrl}</span>
-            <button className={s.copyImgBtn} onClick={copyLink}>
-              <img src="/result-assets/vote/btn_copy.png" alt={copied ? '복사됨' : '복사'} className={s.copyImg} draggable={false} />
-            </button>
+            <button className={s.copyBtn} onClick={copyLink}>{copied ? '복사됨 ✓' : '복사'}</button>
           </div>
-          <a className={s.seeResultImgBtn} href={voteUrl} target="_blank" rel="noreferrer">
-            <img src="/result-assets/vote/btn_see_result.png" alt="실시간 결과 보기" className={s.actionImg} draggable={false} />
-          </a>
-          <button className={s.imgBtn} onClick={onReset}>
-            <img src="/result-assets/vote/btn_retry.png" alt="다시 추천해" className={s.actionImg} draggable={false} />
-          </button>
+          <a className={`${s.actionBtn} ${s.primaryBtn} ${s.seeResultBtn}`} href={voteUrl} target="_blank" rel="noreferrer">실시간 결과 보기</a>
+          <button className={`${s.actionBtn} ${s.homeBtn}`} onClick={onReset}>처음으로</button>
         </div>
       )}
     </div>
