@@ -72,15 +72,9 @@ export default function ResultView({ conditions, restaurants, onReset }) {
             </div>
             <div className={s.recTags}>
               {r.menu && (
-                <span className={s.tagFood}>
-                  <img src="/result-assets/recommend/tag_food.png" alt="" className={s.tagBgImg} draggable={false} />
-                  <span className={s.tagText}>{r.menu}</span>
-                </span>
+                <span className={s.tagFood}>{r.menu}</span>
               )}
-              <span className={s.tagForwho}>
-                <img src="/result-assets/recommend/tag_forwho.png" alt="" className={s.tagBgImg} draggable={false} />
-                <span className={s.tagText}>{r.team_fit || '모두에게 추천'}</span>
-              </span>
+              <span className={s.tagForwho}>{r.team_fit || '모두에게 추천'}</span>
             </div>
           </div>
         ))}
