@@ -143,17 +143,6 @@
 .musicplayer:active .musicplayerImg { transform: scale(0.96); }
 
 /* ────────────────────────────────────────────────────────────
-   Nokia Phone — 375px only (form 배경 디바이스)
-   ────────────────────────────────────────────────────────────*/
-.nokia {
-  display: none; /* 기본 숨김 — 375px에서만 표시 */
-}
-.nokiaImg {
-  width: 100%; display: block;
-  filter: drop-shadow(0 8px 24px rgba(0,0,0,0.3));
-}
-
-/* ────────────────────────────────────────────────────────────
    코너 버튼 — 기본 숨김
    ────────────────────────────────────────────────────────────*/
 .cornerBtn { display: none; }
@@ -241,13 +230,4 @@
     transition: none;
   }
   .cornerBtn { display: none; }
-
-  /* Nokia phone — 375px form 배경 */
-  .nokia {
-    display: block;
-    left: 2.7%;
-    top: 27.6%;
-    width: 94.7vw;
-    animation-delay: 0.35s;
-  }
 }

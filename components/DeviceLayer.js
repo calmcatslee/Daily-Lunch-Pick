@@ -170,16 +170,6 @@ export default function DeviceLayer() {
         />
       </div>
 
-      {/* ── Nokia Phone — 375px only ── */}
-      <div className={`${s.device} ${s.nokia}`}>
-        <img
-          src="/devices/nokiaphone_375.png"
-          alt="Nokia phone"
-          className={s.nokiaImg}
-          draggable={false}
-        />
-      </div>
-
     </div>
   )
 }

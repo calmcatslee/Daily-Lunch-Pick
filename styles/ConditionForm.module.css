@@ -8,8 +8,8 @@
   animation: fadeUp 0.5s ease;
 }
 
-/* ── iBook 프레임 ──────────────────────────────────────────── */
-.ibookWrap {
+/* ── 디바이스 프레임 (CSS 미디어쿼리로 iBook/Nokia 전환) ──── */
+.deviceWrap {
   position: relative;
   width: 100%;
   max-width: 680px;
@@ -22,9 +22,15 @@
   user-select: none;
   pointer-events: none;
 }
+.nokiaImg {
+  display: none; /* 기본 숨김 — 767px 이하에서 표시 */
+  width: 100%;
+  user-select: none;
+  pointer-events: none;
+}
 
-/* ── iBook 화면 오버레이 ───────────────────────────────────── */
-.ibookScreen {
+/* ── 화면 오버레이 (iBook 기준) ────────────────────────────── */
+.screenOverlay {
   position: absolute;
   top: 9.5%;
   left: 15.5%;
@@ -245,39 +251,23 @@
   box-shadow: none;
 }
 
-/* ── Nokia N80 프레임 (375px 모바일) ─────────────────────── */
-.nokiaWrap {
-  position: relative;
-  width: 100%;
-  max-width: 355px;
-  filter: drop-shadow(0 20px 60px rgba(0, 0, 0, 0.35));
-}
-
-.nokiaImg {
-  width: 100%;
-  display: block;
-  user-select: none;
-  pointer-events: none;
-}
-
-.nokiaScreen {
-  position: absolute;
-  top: 24.6%;
-  left: 16.3%;
-  width: 66.5%;
-  height: 61.4%;
-  background: rgba(8, 8, 6, 0.90);
-  border-radius: 4px;
-  padding: 14px 12px 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  overflow: visible;
-  z-index: 2;
-}
+/* (Nokia 스타일은 모바일 미디어쿼리에서 .deviceWrap / .screenOverlay 오버라이드) */
 
 /* ── 모바일 (Nokia) 폼 스타일 조정 — 375~767px ────────────── */
 @media (max-width: 767px) {
+  .deviceWrap { max-width: 355px; }
+  .ibookImg { display: none; }
+  .nokiaImg { display: block; }
+  .screenOverlay {
+    top: 24.6%;
+    left: 16.3%;
+    width: 66.5%;
+    height: 61.4%;
+    background: rgba(8, 8, 6, 0.90);
+    border-radius: 4px;
+    padding: 14px 12px 10px;
+    gap: 8px;
+  }
   .sectionLabel {
     font-size: 23px;
     color: #e5ff00;

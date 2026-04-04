@@ -112,27 +112,17 @@ export default function ConditionForm({ onSubmit, onPlaceSelect }) {
 
   const selectedStyle = STYLES.find(st => st.id === style)
 
-  const [isMobile, setIsMobile] = useState(false)
-  useEffect(() => {
-    const check = () => setIsMobile(window.innerWidth < 768)
-    check()
-    window.addEventListener('resize', check)
-    return () => window.removeEventListener('resize', check)
-  }, [])
-
   return (
     <div className={s.outer}>
 
-      {/* ── 디바이스 프레임 (모바일: Nokia, 그 외: iBook) ── */}
-      <div className={isMobile ? s.nokiaWrap : s.ibookWrap}>
-        <img
-          src={isMobile ? '/devices/nokiaphone_375.png' : '/ibook.png'}
-          alt={isMobile ? 'Nokia N80' : 'iBook'}
-          className={isMobile ? s.nokiaImg : s.ibookImg}
-          draggable={false}
-        />
+      {/* ── 디바이스 프레임: CSS 미디어쿼리로 iBook/Nokia 전환 ── */}
+      <div className={s.deviceWrap}>
+        {/* iBook — 768px+ */}
+        <img src="/ibook.png" alt="iBook" className={s.ibookImg} draggable={false} />
+        {/* Nokia — 0~767px */}
+        <img src="/devices/nokiaphone_375.png" alt="Nokia N80" className={s.nokiaImg} draggable={false} />
 
-        <div className={isMobile ? s.nokiaScreen : s.ibookScreen}>
+        <div className={s.screenOverlay}>
 
           {/* 위치 */}
           <div className={s.section}>
@@ -211,10 +201,10 @@ export default function ConditionForm({ onSubmit, onPlaceSelect }) {
 
           {error && <p className={s.error}>{error}</p>}
 
-        </div>{/* /screen */}
+        </div>{/* /screenOverlay */}
       </div>{/* /deviceWrap */}
 
-      {/* ── 제출 버튼 (iBook 하단) ── */}
+      {/* ── 제출 버튼 ── */}
       <button className={s.submitBtn} onClick={handleSubmit} disabled={!canSubmit}>
         {submitting ? '음식점 찾는 중...' : '다음 →'}
       </button>
