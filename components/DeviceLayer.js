@@ -73,7 +73,7 @@ export default function DeviceLayer() {
     setTincaseOpen(prev => !prev)
   }, [])
 
-  // Musicplayer
+  // Musicplayer (musicplayer.png은 유지, mp3player 오버레이만 제거)
   const mpClickRef = useRef(null)
 
   // Gameboy — hover video + sound
@@ -178,22 +178,12 @@ export default function DeviceLayer() {
         onClick={handleTincaseClick}
         title="클릭해봐"
       >
-        <div className={s.tincaseInner}>
-          <img
-            src={tincaseOpen ? '/devices/tincase1.png' : '/devices/tincase0.png'}
-            alt="tin case"
-            className={s.tincaseImg}
-            draggable={false}
-          />
-          {tincaseOpen && (
-            <img
-              src="/devices/mp3player.png"
-              alt="MP3 player"
-              className={s.mp3player}
-              draggable={false}
-            />
-          )}
-        </div>
+        <img
+          src={tincaseOpen ? '/devices/tincase1.png' : '/devices/tincase0.png'}
+          alt="tin case"
+          className={s.tincaseImg}
+          draggable={false}
+        />
       </div>
 
       {/* ── Musicplayer ── */}

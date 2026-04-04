@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import s from '../styles/ConditionForm.module.css'
 
 const STYLES = [
@@ -112,14 +112,27 @@ export default function ConditionForm({ onSubmit, onPlaceSelect }) {
 
   const selectedStyle = STYLES.find(st => st.id === style)
 
+  const [isMobile, setIsMobile] = useState(false)
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth <= 430)
+    check()
+    window.addEventListener('resize', check)
+    return () => window.removeEventListener('resize', check)
+  }, [])
+
   return (
     <div className={s.outer}>
 
-      {/* ── iBook 프레임 + 화면 오버레이 ── */}
-      <div className={s.ibookWrap}>
-        <img src="/ibook.png" alt="iBook" className={s.ibookImg} draggable={false} />
+      {/* ── 디바이스 프레임 (모바일: Nokia, 그 외: iBook) ── */}
+      <div className={isMobile ? s.nokiaWrap : s.ibookWrap}>
+        <img
+          src={isMobile ? '/devices/nokiaphone_375.png' : '/ibook.png'}
+          alt={isMobile ? 'Nokia N80' : 'iBook'}
+          className={isMobile ? s.nokiaImg : s.ibookImg}
+          draggable={false}
+        />
 
-        <div className={s.ibookScreen}>
+        <div className={isMobile ? s.nokiaScreen : s.ibookScreen}>
 
           {/* 위치 */}
           <div className={s.section}>
@@ -198,8 +211,8 @@ export default function ConditionForm({ onSubmit, onPlaceSelect }) {
 
           {error && <p className={s.error}>{error}</p>}
 
-        </div>{/* /ibookScreen */}
-      </div>{/* /ibookWrap */}
+        </div>{/* /screen */}
+      </div>{/* /deviceWrap */}
 
       {/* ── 제출 버튼 (iBook 하단) ── */}
       <button className={s.submitBtn} onClick={handleSubmit} disabled={!canSubmit}>
