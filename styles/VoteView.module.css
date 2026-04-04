@@ -3,35 +3,36 @@
 .list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
 
 .card {
-  background: rgba(55, 55, 55, 0.88);
-  border: 2px solid rgba(80, 80, 80, 0.6);
-  border-radius: 16px; padding: 14px 18px;
-  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  background: rgba(102, 102, 102, 0.5);
+  border: 1px solid white;
+  border-radius: 15px; padding: 14px 18px;
+  box-shadow: 3px 4px 15px rgba(0, 0, 0, 0.3);
 }
 .cardInner { display: flex; align-items: center; gap: 12px; }
 .numImg { width: 24px; height: 24px; flex-shrink: 0; user-select: none; }
 .info { display: flex; flex-direction: column; gap: 2px; flex: 1; min-width: 0; }
-.name { font-family: 'PyeojinGothic', sans-serif; font-size: clamp(14px, 1.6vw, 17px); font-weight: 700; color: #fff; }
-.addr { font-family: 'PyeojinGothic', sans-serif; font-size: clamp(11px, 1.1vw, 13px); color: rgba(255,255,255,0.45); }
+.name { font-family: 'PyeojinGothic', sans-serif; font-size: clamp(15px, 2vw, 25px); font-weight: 700; color: #fff; line-height: 27px; text-shadow: 0 4px 4px rgba(0,0,0,0.25); }
+.addr { font-family: 'PyeojinGothic', sans-serif; font-size: clamp(11px, 1.3vw, 16px); color: #fff; text-shadow: 0 4px 4px rgba(0,0,0,0.25); letter-spacing: -0.48px; }
 
 .mapBtn {
   flex-shrink: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 5px 12px;
-  border-radius: 9px;
-  background: rgba(212, 255, 0, 0.10);
-  border: 1.5px solid rgba(212, 255, 0, 0.55);
-  color: #d4ff00;
+  padding: 9px 16px;
+  border-radius: 10px;
+  background: #000000;
+  border: 1px solid #000000;
+  color: #ffffff;
   font-family: 'PyeojinGothic', sans-serif;
-  font-size: 11px;
-  font-weight: 700;
+  font-size: clamp(14px, 1.6vw, 20px);
+  font-weight: 400;
   letter-spacing: 0em;
-  line-height: 1.2;
+  line-height: 27px;
   text-decoration: none;
   transition: transform 0.15s;
   white-space: nowrap;
+  box-shadow: 3px 4px 15px rgba(0, 0, 0, 0.3);
 }
 .mapBtn:hover { transform: scale(1.05); }
 
@@ -39,14 +40,15 @@
 .actions { display: flex; gap: 10px; }
 .actionBtn {
   flex: 1;
-  height: clamp(44px, 5vw, 56px);
-  border: 2px solid transparent;
-  border-radius: 14px;
+  height: clamp(48px, 5.2vw, 65px);
+  border: 4px solid #000000;
+  border-radius: 15px;
   font-family: 'PyeojinGothic', sans-serif;
-  font-size: clamp(14px, 1.5vw, 17px);
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  line-height: 1.2;
+  font-size: clamp(16px, 2.1vw, 26px);
+  font-weight: 400;
+  letter-spacing: 0em;
+  line-height: 27px;
+  color: #000000;
   cursor: pointer;
   transition: transform 0.15s;
   outline: none;
@@ -54,12 +56,13 @@
   align-items: center;
   justify-content: center;
   text-decoration: none;
+  box-shadow: 3px 4px 15px rgba(0, 0, 0, 0.3);
 }
 .actionBtn:hover:not(:disabled) { transform: translateY(-2px); }
 .actionBtn:disabled { opacity: 0.5; cursor: not-allowed; }
-.retryBtn { background: #84eeda; color: #1a1a1a; }
-.primaryBtn { background: #d4ff00; color: #1a1a1a; }
-.homeBtn { background: #f0efe8; color: #1a1a1a; }
+.retryBtn { background: rgba(173, 255, 239, 0.8); }
+.primaryBtn { background: #e5ff00; }
+.homeBtn { background: rgba(255, 255, 255, 0.8); }
 .seeResultBtn { width: 100%; flex: none; }
 
 /* 공유 */

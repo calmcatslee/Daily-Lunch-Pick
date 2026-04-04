@@ -7,119 +7,139 @@
 /* 카드 리스트 */
 .recList { display: flex; flex-direction: column; gap: 10px; }
 
-/* 카드 — 다크 반투명 (Recommend_Result 참고) */
+/* 카드 — 피그마 매칭 */
 .recCard {
-  background: rgba(55, 55, 55, 0.88);
-  border: 2px solid rgba(80, 80, 80, 0.6);
-  border-radius: 18px;
+  background: rgba(102, 102, 102, 0.5);
+  border: 1px solid white;
+  border-radius: 15px;
   padding: 18px 20px 14px;
   display: flex; flex-direction: column; gap: 10px;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 3px 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 /* 카드 헤더 */
 .recHeader { display: flex; align-items: flex-start; gap: 12px; }
-.recNumImg { width: clamp(26px, 3vw, 34px); height: clamp(26px, 3vw, 34px); flex-shrink: 0; margin-top: 2px; user-select: none; }
+.recNumImg { width: clamp(30px, 3.2vw, 41px); height: clamp(30px, 3.2vw, 41px); flex-shrink: 0; margin-top: 2px; user-select: none; }
 .recInfo { display: flex; flex-direction: column; gap: 3px; flex: 1; min-width: 0; }
-.recName { font-family: 'PyeojinGothic', sans-serif; font-size: clamp(16px, 2vw, 20px); font-weight: 700; color: #fff; line-height: 1.3; }
-.recAddr { font-family: 'PyeojinGothic', sans-serif; font-size: clamp(11px, 1.1vw, 13px); color: rgba(255,255,255,0.5); }
+.recName {
+  font-family: 'PyeojinGothic', sans-serif;
+  font-size: clamp(17px, 2vw, 25px);
+  font-weight: 700;
+  color: #fff;
+  line-height: 27px;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+.recAddr {
+  font-family: 'PyeojinGothic', sans-serif;
+  font-size: clamp(12px, 1.3vw, 16px);
+  font-weight: 400;
+  color: #fff;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  letter-spacing: -0.48px;
+}
 
-/* 지도보기 — CSS 버튼 */
+/* 지도보기 — 피그마 매칭 */
 .mapBtn {
   flex-shrink: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 6px 14px;
+  padding: 9px 16px;
   border-radius: 10px;
-  background: rgba(212, 255, 0, 0.10);
-  border: 1.5px solid rgba(212, 255, 0, 0.55);
-  color: #d4ff00;
+  background: #000000;
+  border: 1px solid #000000;
+  color: #ffffff;
   font-family: 'PyeojinGothic', sans-serif;
-  font-size: 12px;
-  font-weight: 700;
+  font-size: clamp(14px, 1.6vw, 20px);
+  font-weight: 400;
   letter-spacing: 0em;
-  line-height: 1.2;
+  line-height: 27px;
   text-decoration: none;
   transition: transform 0.15s;
-  margin-top: 2px;
   white-space: nowrap;
+  box-shadow: 3px 4px 15px rgba(0, 0, 0, 0.3);
 }
 .mapBtn:hover { transform: scale(1.05); }
 
-/* 태그 — CSS 기반 (피그마 매칭) */
+/* 태그 — 피그마 매칭 */
 .recTags { display: flex; gap: 8px; flex-wrap: wrap; }
 .tagFood, .tagForwho {
   display: inline-flex; align-items: center; justify-content: center;
   padding: 6px 16px;
-  border-radius: 14px;
+  border-radius: 15px;
   font-family: 'PyeojinGothic', sans-serif;
-  font-size: clamp(12px, 1.3vw, 15px);
-  font-weight: 700;
+  font-weight: 400;
   white-space: nowrap;
-  line-height: 1.4;
+  line-height: 27px;
+  box-shadow: 3px 4px 15px rgba(0, 0, 0, 0.3);
 }
 .tagFood {
-  background: #E5FF00;
-  color: #1a1a1a;
+  background: #e5ff00;
+  color: #000000;
+  font-size: clamp(13px, 1.4vw, 17px);
 }
 .tagForwho {
-  background: #FFFDE6;
-  color: #1a1a1a;
+  background: #fcffe3;
+  color: #000000;
+  font-size: clamp(12px, 1.3vw, 16px);
 }
 
-/* 하단 버튼 — CSS */
+/* 하단 버튼 — 피그마 매칭 */
 .actions { display: flex; gap: 10px; margin-top: 6px; }
 .actionBtn {
   flex: 1;
-  height: clamp(44px, 5vw, 56px);
-  border: 2px solid transparent;
-  border-radius: 14px;
+  height: clamp(48px, 5.2vw, 65px);
+  border: 4px solid #000000;
+  border-radius: 15px;
   font-family: 'PyeojinGothic', sans-serif;
-  font-size: clamp(14px, 1.5vw, 17px);
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  line-height: 1.2;
+  font-size: clamp(16px, 2.1vw, 26px);
+  font-weight: 400;
+  letter-spacing: 0em;
+  line-height: 27px;
+  color: #000000;
   cursor: pointer;
   transition: transform 0.15s;
   outline: none;
+  box-shadow: 3px 4px 15px rgba(0, 0, 0, 0.3);
 }
 .actionBtn:hover { transform: translateY(-2px); }
-.retryBtn { background: #84eeda; color: #1a1a1a; }
-.homeBtn { background: #f0efe8; color: #1a1a1a; }
+.retryBtn { background: rgba(173, 255, 239, 0.8); }
+.homeBtn { background: rgba(255, 255, 255, 0.8); }
 
 /* ── 1920px+ ───────────────────────────────────────────────── */
 @media (min-width: 1920px) {
-  .recCard { padding: 22px 26px 18px; border-radius: 22px; }
-  .recNumImg { width: 38px; height: 38px; }
-  .recName { font-size: 22px; }
-  .recAddr { font-size: 14px; }
-  .mapBtn { font-size: 14px; padding: 7px 18px; border-radius: 12px; }
-  .tagFood, .tagForwho { font-size: 16px; padding: 7px 20px; border-radius: 16px; }
-  .actionBtn { height: 64px; font-size: 18px; border-radius: 18px; }
+  .recCard { padding: 22px 26px 18px; }
+  .recNumImg { width: 46px; height: 46px; }
+  .recName { font-size: 28px; }
+  .recAddr { font-size: 18px; }
+  .mapBtn { font-size: 22px; padding: 10px 20px; }
+  .tagFood { font-size: 19px; }
+  .tagForwho { font-size: 18px; }
+  .actionBtn { height: 72px; font-size: 30px; }
 }
 
 /* ── 768~1279px ─────────────────────────────────────────────── */
 @media (max-width: 1279px) and (min-width: 768px) {
-  .recCard { padding: 16px 18px 12px; border-radius: 16px; }
-  .recNumImg { width: 28px; height: 28px; }
-  .recName { font-size: 17px; }
-  .recAddr { font-size: 12px; }
-  .mapBtn { font-size: 11px; padding: 5px 12px; border-radius: 9px; }
-  .tagFood, .tagForwho { font-size: 13px; padding: 5px 14px; border-radius: 13px; }
-  .actionBtn { height: 48px; font-size: 15px; }
+  .recCard { padding: 16px 18px 12px; }
+  .recNumImg { width: 32px; height: 32px; }
+  .recName { font-size: 20px; }
+  .recAddr { font-size: 14px; }
+  .mapBtn { font-size: 16px; padding: 7px 14px; }
+  .tagFood { font-size: 15px; }
+  .tagForwho { font-size: 14px; }
+  .actionBtn { height: 55px; font-size: 22px; }
 }
 
 /* ── 375~767px ──────────────────────────────────────────────── */
 @media (max-width: 767px) {
-  .recCard { padding: 14px 16px 10px; border-radius: 14px; }
-  .recNumImg { width: 24px; height: 24px; }
-  .recName { font-size: 15px; }
-  .recAddr { font-size: 11px; }
-  .mapBtn { font-size: 10px; padding: 5px 10px; border-radius: 8px; }
-  .tagFood, .tagForwho { font-size: 11px; padding: 4px 11px; border-radius: 11px; }
-  .actionBtn { height: 42px; font-size: 14px; border-radius: 12px; }
+  .recCard { padding: 14px 16px 10px; }
+  .recNumImg { width: 26px; height: 26px; }
+  .recName { font-size: 16px; }
+  .recAddr { font-size: 12px; }
+  .mapBtn { font-size: 13px; padding: 6px 12px; }
+  .tagFood { font-size: 12px; padding: 5px 12px; }
+  .tagForwho { font-size: 11px; padding: 5px 12px; }
+  .actionBtn { height: 44px; font-size: 16px; border-width: 3px; border-radius: 12px; }
   .actions { gap: 8px; }
 }
 

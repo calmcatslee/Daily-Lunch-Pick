@@ -14,53 +14,63 @@
 
 .wheel { filter: drop-shadow(0 8px 24px rgba(0,0,0,0.25)); border-radius: 50%; }
 
-/* 결과 오버레이 */
+/* 결과 오버레이 — 피그마 매칭 */
 .resultOverlay {
   width: 100%;
-  background: rgba(55, 55, 55, 0.90);
-  border: 2px solid rgba(80, 80, 80, 0.6);
-  border-radius: 20px; padding: 24px;
+  background: rgba(102, 102, 102, 0.5);
+  border: 1px solid white;
+  border-radius: 15px;
+  padding: 24px;
   text-align: center;
   display: flex; flex-direction: column; gap: 10px; align-items: center;
   animation: fadeUp 0.4s ease;
-  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  box-shadow: 3px 4px 15px rgba(0, 0, 0, 0.3);
 }
-.resultTags { display: flex; gap: 8px; flex-wrap: wrap; }
+.resultTags { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
 .tagFood, .tagForwho {
   display: inline-flex; align-items: center; justify-content: center;
   padding: 6px 16px;
-  border-radius: 14px;
+  border-radius: 15px;
   font-family: 'PyeojinGothic', sans-serif;
-  font-size: clamp(12px, 1.3vw, 15px);
-  font-weight: 700;
+  font-weight: 400;
   white-space: nowrap;
-  line-height: 1.4;
-  letter-spacing: 0em;
+  line-height: 27px;
+  box-shadow: 3px 4px 15px rgba(0, 0, 0, 0.3);
 }
-.tagFood { background: #E5FF00; color: #1a1a1a; }
-.tagForwho { background: #FFFDE6; color: #1a1a1a; }
-.resultName { font-family: 'PyeojinGothic', sans-serif; font-size: clamp(22px, 3vw, 28px); font-weight: 700; color: #d4ff00; }
-.resultAddr { font-family: 'PyeojinGothic', sans-serif; font-size: 13px; color: rgba(255,255,255,0.55); }
+.tagFood { background: #e5ff00; color: #000000; font-size: clamp(13px, 1.4vw, 17px); }
+.tagForwho { background: #fcffe3; color: #000000; font-size: clamp(12px, 1.3vw, 16px); }
+.resultName { font-family: 'PyeojinGothic', sans-serif; font-size: clamp(22px, 3vw, 28px); font-weight: 700; color: #d4ff00; text-shadow: 0 4px 4px rgba(0,0,0,0.25); }
+.resultAddr { font-family: 'PyeojinGothic', sans-serif; font-size: clamp(12px, 1.3vw, 16px); color: rgba(255,255,255,0.55); letter-spacing: -0.48px; }
 
-/* 버튼 — CSS */
+/* 버튼 — 피그마 매칭 */
 .actions { display: flex; gap: 10px; width: 100%; }
 .actionBtn {
   flex: 1;
-  height: clamp(44px, 5vw, 56px);
-  border: 2px solid transparent;
-  border-radius: 14px;
+  height: clamp(48px, 5.2vw, 65px);
+  border: 4px solid #000000;
+  border-radius: 15px;
   font-family: 'PyeojinGothic', sans-serif;
-  font-size: clamp(14px, 1.5vw, 17px);
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  line-height: 1.2;
+  font-size: clamp(16px, 2.1vw, 26px);
+  font-weight: 400;
+  letter-spacing: 0em;
+  line-height: 27px;
+  color: #000000;
   cursor: pointer;
   transition: transform 0.15s;
   outline: none;
+  box-shadow: 3px 4px 15px rgba(0, 0, 0, 0.3);
 }
 .actionBtn:hover:not(:disabled) { transform: translateY(-2px); }
 .actionBtn:disabled { opacity: 0.6; cursor: not-allowed; }
-.retryBtn { background: #84eeda; color: #1a1a1a; }
-.homeBtn { background: #f0efe8; color: #1a1a1a; }
+.retryBtn { background: rgba(173, 255, 239, 0.8); }
+.homeBtn { background: rgba(255, 255, 255, 0.8); }
+
+/* ── 375~767px ──────────────────────────────────────────────── */
+@media (max-width: 767px) {
+  .tagFood { font-size: 12px; padding: 5px 12px; }
+  .tagForwho { font-size: 11px; padding: 5px 12px; }
+  .actionBtn { height: 44px; font-size: 16px; border-width: 3px; border-radius: 12px; }
+  .actions { gap: 8px; }
+}
 
 @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
