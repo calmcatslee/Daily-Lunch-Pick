@@ -6,7 +6,7 @@
   overflow-x: hidden;
 }
 
-/* 날씨 위젯 — 스크롤해도 고정 */
+/* 날씨 위젯 — 데스크톱에서 고정 */
 .weatherFixed {
   position: fixed;
   top: 16px;
@@ -34,20 +34,17 @@
   align-items: center;
   justify-content: center;
   padding: 0 16px 48px;
-  padding-top: clamp(200px, 30vw, 320px);
+  padding-top: 20px;
   position: relative;
 }
 
 .titleWrap {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  position: relative;
   display: flex;
   justify-content: center;
-  padding-top: 18px;
+  padding-top: clamp(80px, 10vw, 180px);
   padding-bottom: 10px;
-  z-index: 40;
+  z-index: 5;
   pointer-events: none;
 }
 .titleImg {
@@ -55,7 +52,7 @@
   max-width: 90%;
   filter: drop-shadow(0 4px 16px rgba(0,0,0,0.15));
   user-select: none;
-  pointer-events: auto;
+  pointer-events: none;
 }
 
 /* ── After Search ──────────────────────────────────────────── */
@@ -66,7 +63,7 @@
   flex-direction: column;
   gap: 0;
   padding: 8px 16px 48px;
-  padding-top: clamp(200px, 30vw, 320px);
+  padding-top: 20px;
   animation: fadeUp 0.4s ease;
 }
 
@@ -139,16 +136,30 @@
   .resultWrap { max-width: 724px; }
 }
 
-/* ── 768~1279px ─────────────────────────────────────────────── */
+/* ── 768~1279px — 날씨도 스크롤과 함께 이동 ──────────── */
 @media (max-width: 1279px) and (min-width: 768px) {
-  .weatherFixed { top: 18px; left: 18px; }
+  .weatherFixed {
+    position: relative;
+    top: auto; left: auto;
+    margin: 8px 0 0 18px;
+    z-index: 5;
+  }
 }
 
-/* ── 375~767px ──────────────────────────────────────────────── */
+/* ── 375~767px — 날씨도 스크롤과 함께 이동 ──────────── */
 @media (max-width: 767px) {
-  .resultWrap { max-width: 350px; padding: 8px 12px 48px; }
-  .titleImg { width: 161px; }
-  .weatherFixed { top: 10px; left: 10px; }
+  .titleWrap { padding-top: 60px; }
+  .titleImg { width: 230px; }
+  .modeWrap { padding-top: 20px; }
+  .resultWrap { max-width: 350px; padding: 8px 12px 48px; padding-top: 20px; }
+  .weatherFixed {
+    position: relative;
+    top: auto; left: auto; right: auto;
+    transform: none;
+    width: auto;
+    margin: 8px 12px 0;
+    z-index: 5;
+  }
   .tabBtn {
     font-size: 21px;
     letter-spacing: -0.84px;

@@ -164,6 +164,15 @@
   .cd          { width: clamp(250px, 28vw, 545px); }
 }
 
+/* ── 375~1279px : 스크롤과 함께 이동 ── */
+@media (max-width: 1279px) {
+  .layer {
+    position: absolute;
+    height: 100%;
+    min-height: 100vh;
+  }
+}
+
 /* ── 768~1279px : Figma 768×1024 ── */
 @media (max-width: 1279px) and (min-width: 768px) {
   .cd {
@@ -199,33 +208,34 @@
 /* ── 0~767px : Figma 375×667 ── */
 @media (max-width: 767px) {
   .cd {
-    width: 68.5vw;
-    top: -16%;
-    left: 60.8%;
-    transform: translateX(0) rotate(-36deg);
+    width: 52vw;
+    top: -26vw;
+    left: auto;
+    right: -26vw;
+    transform: rotate(-36deg);
   }
-  .cdHovered { top: -4%; }
+  .cdHovered { top: -20vw; }
   .pager {
-    left: 6.7%; top: 6.4%;
-    width: 16.8vw;
+    left: 3%; top: 5%;
+    width: 26vw;
     transform: rotate(0deg);
     transition: none;
   }
   .gameboy {
-    left: 12%; top: 18.3%; bottom: auto;
-    width: 16.8vw;
+    left: 5%; top: 19%; bottom: auto;
+    width: 24vw;
     transform: rotate(7deg);
     transition: none;
   }
   .tincase {
-    right: 4%; top: 7.9%;
-    width: 23.7vw;
+    right: -2%; top: 10%;
+    width: 30vw;
     transform: rotate(-6deg);
     transition: none;
   }
   .musicplayer {
-    right: 7.5%; top: 23.5%; bottom: auto;
-    width: 19.5vw;
+    right: 0%; top: 24%; bottom: auto;
+    width: 28vw;
     transform: rotate(-7deg);
     transition: none;
   }

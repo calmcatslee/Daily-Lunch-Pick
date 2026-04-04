@@ -179,7 +179,7 @@
   padding: 9px 4px;
   border-radius: 20px;
   font-size: clamp(11px, 1.2vw, 14px);
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'YoonLight', sans-serif;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.14s;
@@ -262,7 +262,7 @@
     top: 24.6%;
     left: 16.3%;
     width: 66.5%;
-    height: 61.4%;
+    height: 66%;
     background: rgba(8, 8, 6, 0.90);
     border-radius: 4px;
     padding: 14px 12px 10px;
