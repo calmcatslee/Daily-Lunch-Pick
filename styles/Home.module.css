@@ -51,7 +51,7 @@
   pointer-events: none;
 }
 .titleImg {
-  width: clamp(240px, 38vw, 420px);
+  width: clamp(161px, 26vw, 339px);
   max-width: 90%;
   filter: drop-shadow(0 4px 16px rgba(0,0,0,0.15));
   user-select: none;
@@ -61,7 +61,7 @@
 /* ── After Search ──────────────────────────────────────────── */
 .resultWrap {
   width: 100%;
-  max-width: 560px;
+  max-width: 613px;
   display: flex;
   flex-direction: column;
   gap: 0;
@@ -82,13 +82,13 @@
 }
 .tabBtn {
   flex: 1;
-  padding: 14px 8px;
+  padding: 18px 8px;
   border: none;
   border-radius: 15px;
   background: transparent;
   color: rgba(255, 255, 255, 0.70);
   font-family: 'PyeojinGothic', sans-serif;
-  font-size: clamp(16px, 2.1vw, 27px);
+  font-size: 27px;
   font-weight: 400;
   letter-spacing: 0em;
   line-height: 27px;
@@ -106,7 +106,7 @@
   color: rgba(255, 255, 255, 0.90);
 }
 
-/* 조건 칩 */
+/* 조건 칩 — 피그마 매칭 */
 .conditionChips {
   display: flex;
   flex-wrap: wrap;
@@ -118,11 +118,13 @@
   border: 0.3px solid #E5FF00;
   color: #E5FF00;
   font-family: 'PyeojinGothic', sans-serif;
-  font-size: clamp(13px, 1.4vw, 16px);
-  font-weight: 600;
-  padding: 10px 22px;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 12px 22px;
   border-radius: 15px;
-  letter-spacing: 0.02em;
+  letter-spacing: 0em;
+  line-height: 27px;
+  box-shadow: 3px 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 .tabContent { width: 100%; }
@@ -132,9 +134,29 @@
   to   { opacity: 1; transform: translateY(0); }
 }
 
-@media (max-width: 768px) {
-  .weatherFixed {
-    top: 10px;
-    left: 10px;
+/* ── 1920px+ ───────────────────────────────────────────────── */
+@media (min-width: 1920px) {
+  .resultWrap { max-width: 724px; }
+}
+
+/* ── 768~1279px ─────────────────────────────────────────────── */
+@media (max-width: 1279px) and (min-width: 768px) {
+  .weatherFixed { top: 18px; left: 18px; }
+}
+
+/* ── 375~767px ──────────────────────────────────────────────── */
+@media (max-width: 767px) {
+  .resultWrap { max-width: 350px; padding: 8px 12px 48px; }
+  .titleImg { width: 161px; }
+  .weatherFixed { top: 10px; left: 10px; }
+  .tabBtn {
+    font-size: 21px;
+    letter-spacing: -0.84px;
+    padding: 12px 6px;
+  }
+  .condChip {
+    font-size: 13px;
+    padding: 4px 12px;
+    border-radius: 8px;
   }
 }
