@@ -3,7 +3,7 @@ import DeviceLayer from '../components/DeviceLayer'
 import { useRouter } from 'next/router'
 import Script from 'next/script'
 
-const GA_ID = 'G-VY2FRP7TP8'
+const GA_ID = 'G-GLZ8BBPL9Q'
 
 export default function App({ Component, pageProps }) {
   const router = useRouter()
