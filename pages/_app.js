@@ -2,6 +2,7 @@ import '../styles/globals.css'
 import DeviceLayer from '../components/DeviceLayer'
 import { useRouter } from 'next/router'
 import Script from 'next/script'
+import { Analytics } from '@vercel/analytics/react'
 
 const GA_ID = 'G-GLZ8BBPL9Q'
 
@@ -25,6 +26,7 @@ export default function App({ Component, pageProps }) {
       </Script>
       <Component {...pageProps} />
       {!isVotePage && <DeviceLayer />}
+      <Analytics />
     </>
   )
 }
